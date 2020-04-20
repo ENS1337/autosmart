@@ -39,4 +39,26 @@ $(document).ready(function() {
     $("#select-sort").click(function(){
         $("#sorting-list").slideToggle(200);
     });
+     $('#block-category > ul > li > a').click(function(){
+               	        
+            if ($(this).attr('class') != 'active'){
+                
+			$('#block-category > ul > li > ul').slideUp(400);
+            $(this).next().slideToggle(400);
+            
+                    $('#block-category > ul > li > a').removeClass('active');
+					$(this).addClass('active');
+                    $.cookie('select_cat', $(this).attr('id'));
+                    
+				}else
+                {
+                                   
+                    $('#block-category > ul > li > a').removeClass('active');
+                    $('#block-category > ul > li > ul').slideUp(400);
+                    $.cookie('select_cat', '');   
+                }                                  
+        });
+    if ($.cookie('select_cat') != ''){
+            $('#block-category > ul > li > #'+$.cookie('select_cat')).addClass('active').next().show();
+    }
  });
