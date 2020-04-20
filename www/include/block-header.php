@@ -15,7 +15,7 @@
     <!-- Линия -->
     <div id="top-line"></div>
     <!-- Логотип -->
-    <img id="img-logo" src="/images/logo-lg.png" />
+    <a href="index.php"><img id="img-logo" src="/images/logo.png" /></a>
     <!-- Информационный блок. -->
         <div id="presonal-info">
             <p align="right">Звонок бесплатный.</p>

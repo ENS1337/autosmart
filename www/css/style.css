@@ -86,6 +86,8 @@
     height: 5px;
 }
 #img-logo{
+    width: 500px;
+    height: 180px;            
     position: absolute;
 }
 /* Блок с информацией о работе автомагазина */
@@ -424,13 +426,13 @@
 #sorting-list{
     border: 1px solid #A3C0D2;
     position: absolute;
-    width: 200px;
-    height: 108px;
+    width: 200px;    
     background-color: white;
     padding-top: 5px;
+    padding-bottom: 5px;    
     display: none;
 }
-#sorting-list li{
+#sorting-list li{    
     margin-top: 3px;
     margin-left: 10px;
 }
@@ -438,6 +440,7 @@
     font: 15px sans-serif;
     text-decoration: none;
     color: black;
+    background-color: white;
 }
 #sorting-list a:hover{
     text-decoration: underline;
@@ -446,7 +449,7 @@
 #block-car-grid > li{
     width: 390px;
     float: left;
-    margin-left: 10px;
+    margin-left: 10px;    
 }
 .style-title-grid{
     margin-top: 0px;
@@ -462,13 +465,14 @@
 }
 .block-images-grid{
     width: auto;
-    height: 230px;
+    height: 230px;    
     float: left;
     margin-right: 15px;   
 }
 .reviews-and-counts-grid{
     height: 20px;
     margin-top: 5px;
+    margin-left: 45px;
 }
 .reviews-and-counts-grid > li{
     float: left;
@@ -509,6 +513,82 @@
     background: url(/images/add-cart-active.png);
 }
 .mini-featurescar{
-    font:14px/16px sans-serif;
+    font:12px/14px sans-serif;
     margin-top: 10px;
+}
+/*Линейный стиль магазина*/
+.block-images-list{
+    float: left;
+    margin-right: 15px;
+    min-height: 160px;
+    height: auto;
+}
+#block-car-list{
+    display: none;     
+}
+#block-car-list > li{
+    border-bottom: 1px solid #E6E6E6;
+    min-height: 160px;
+    height: auto;
+    margin-top: 15px;
+    padding-bottom: 5px;      
+}
+.reviews-and-counts-list{
+    position: absolute;
+    margin-left: 670px;
+}
+.reviews-and-counts-list > li{
+    float: left;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+.reviews-and-counts-list > li > p{
+    margin-left: 25px;
+    margin-top: -1px;
+    font: 13px sans-serif;
+}
+.reviews-and-counts-list > li > img{
+    position: absolute;
+}
+.style-title-list{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.style-title-list a{
+    font: bold 15px sans-serif;
+    color:  #0A83AB;
+    text-decoration: underline;
+}
+.style-title-list a:hover{
+    color: #EF662B;
+}
+.add-cart-style-list{
+    width: 48px;
+    height: 25px;
+    display: block;
+    cursor: pointer;
+    float: left;
+    margin-top: 8px;
+    margin-right: 10px;
+    background: url(/images/add-cart-norm.png);
+}
+.add-cart-style-list:hover{
+    background: url(/images/add-cart-hover.png);
+}
+.add-cart-style-list:active{
+    background: url(/images/add-cart-active.png);
+}
+.style-price-list{
+    font: 16px sans-serif;
+    margin-top: 7px;
+}
+.style-price-list strong{
+    font: 20px sans-serif;
+    color: #6B6D73;
+}
+.mini-description-list{
+    font: 15px sans-serif;
+    margin: 0;    
+    
+}   
 }
