@@ -79,11 +79,11 @@
                     </div>
                     <p class="style-title-grid"><a href="">'.$row["title"].'</a></p>
                     <ul class="reviews-and-counts-grid">
-                        <li><img src="/images/eye-icon.png"/></li>
-                        <li><img src="/images/comment-icon.png"/></li>
+                        <li><img src="/images/eye-icon.png"/><p>0</p></li>
+                        <li><img src="/images/comment-icon.png"/><p>0</p></li>
                     </ul>
                     <a class="add-cart-style-grid"></a>
-                    <p class="style-price-grid"><strong></strong> руб.</p>
+                    <p class="style-price-grid"><strong>'.$row["price"].'</strong> руб.</p>
                     <div class="mini-featurescar">
                         '.$row["mini_featurescar"].'
                     </div>
@@ -92,14 +92,53 @@
         }while($row = mysql_fetch_array($result));
       } 
     ?>
-    <ul class="reviews-and-counts-grid">
-        <li><img src="/images/eye-icon.png"/></li>
-        <li><img src="/images/comment-icon.png"/></li>
     </ul>
-    <a class="add-cart-style-grid"></a>
-    <p class="style-price-grid"><strong></strong> руб.</p>
-    <div class="mini-features"></div>
-    </ul>  
+    
+    <ul id="block-car-list">    
+    <?php
+	  $result = mysql_query("SELECT * FROM table_cars",$link);
+      
+      if(mysql_numrows($result) > 0)
+      {
+        $row = mysql_fetch_array($result);
+        do{
+            if  ($row["image"] != "" && file_exists("./uploads_images/".$row["image"])){
+                    $img_path = './uploads_images/'.$row["image"];
+                    $max_width = 200; 
+                    $max_height = 200; 
+                     list($width, $height) = getimagesize($img_path); 
+                    $ratioh = $max_height/$height; 
+                    $ratiow = $max_width/$width; 
+                    $ratio = min($ratioh, $ratiow); 
+                    $width = intval($ratio*$width); 
+                    $height = intval($ratio*$height);    
+            }
+                    else{
+                    $img_path = "/images/no-image.png";
+                    $width = 110;
+                    $height = 200;
+                    } 
+            echo'<li>
+                    <div class="block-images-list">
+                        <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />
+                    </div>
+                    
+                    <p class="style-title-list"><a href="">'.$row["title"].'</a></p>
+                    <ul class="reviews-and-counts-list">
+                        <li><img src="/images/eye-icon.png"/><p>0</p></li>
+                        <li><img src="/images/comment-icon.png"/><p>0</p></li>
+                    </ul>
+                    <a class="add-cart-style-list"></a>
+                    <p class="style-price-list"><strong>'.$row["price"].'</strong> руб.</p>
+                    <div class="mini-featurescar">
+                        '.$row["mini_featurescar"].'
+                    </div>
+                </li>';
+            
+        }while($row = mysql_fetch_array($result));
+      } 
+    ?>
+    </ul>    
     </div>
     <?php
          include("include/block-footer.php");

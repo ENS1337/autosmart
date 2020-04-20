@@ -385,6 +385,7 @@
     width: 1035px;
     height: 5px;
 }
+/* Основной блок (Блок с выбором вида вывода автомобилей (сетка или линейно)) */
 #nav-breadcrumbs{
     margin-top: 5px;
 }
@@ -441,4 +442,73 @@
 #sorting-list a:hover{
     text-decoration: underline;
 }
-
+/* Основной блок (Блок автомобилей) */
+#block-car-grid > li{
+    width: 390px;
+    float: left;
+    margin-left: 10px;
+}
+.style-title-grid{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.style-title-grid a{
+    font: bold 15px sans-serif;
+    color:  #0A83AB;
+    text-decoration: underline;
+}
+.style-title-grid a:hover{
+    color: #EF662B;
+}
+.block-images-grid{
+    width: auto;
+    height: 230px;
+    float: left;
+    margin-right: 15px;   
+}
+.reviews-and-counts-grid{
+    height: 20px;
+    margin-top: 5px;
+}
+.reviews-and-counts-grid > li{
+    float: left;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+.reviews-and-counts-grid > li > p{
+    margin-left: 25px;
+    font: 13px sans-serif;
+    margin-top: -1px;
+    margin-bottom: 0;
+}
+.reviews-and-counts-grid > li > img{
+    position: absolute;
+}
+.style-price-grid{
+    font: 16px sans-serif;
+    margin-top: 7px;
+}
+.style-price-grid strong{
+    font: 20px sans-serif;
+    color: #6B6D73;
+}
+.add-cart-style-grid{
+    width: 48px;
+    height: 25px;
+    display: block;
+    cursor: pointer;
+    float: left;
+    margin-top: 8px;
+    margin-right: 10px;
+    background: url(/images/add-cart-norm.png);
+}
+.add-cart-style-grid:hover{
+    background: url(/images/add-cart-hover.png);
+}
+.add-cart-style-grid:active{
+    background: url(/images/add-cart-active.png);
+}
+.mini-featurescar{
+    font:14px/16px sans-serif;
+    margin-top: 10px;
+}
