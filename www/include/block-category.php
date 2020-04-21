@@ -3,7 +3,7 @@
     <ul>
         <li><a id="index1">Легковые автомобили</a>
             <ul class="category-section">
-                <li><a href=""><strong>Все автомобили</strong></a></li>
+                <li><a href="view_cat.php?type=cars"><strong>Все автомобили</strong></a></li>
                 <?php
                     $result = mysql_query("SELECT * FROM category_cars WHERE type_car='cars' ORDER BY mark_auto",$link);
                         If (mysql_num_rows($result) > 0){
@@ -17,7 +17,7 @@
         </li>
         <li><a id="index2">Грузовые автомобили</a>
             <ul class="category-section">
-                <li><a href=""><strong>Все автомобили</strong></a></li>
+                <li><a href="view_cat.php?type=trucks"><strong>Все автомобили</strong></a></li>
                 <?php
                     $result = mysql_query("SELECT * FROM category_cars WHERE type_car='trucks' ORDER BY mark_auto",$link);
                         If (mysql_num_rows($result) > 0){
@@ -31,7 +31,7 @@
         </li> 
         <li><a id="index3">Пассажирские автомобили</a>
             <ul class="category-section">
-                <li><a href=""><strong>Все автомобили</strong></a></li>
+                <li><a href="view_cat.php?type=passenger"><strong>Все автомобили</strong></a></li>
                 <?php
                     $result = mysql_query("SELECT * FROM category_cars WHERE type_car='passenger' ORDER BY mark_auto",$link);
                         If (mysql_num_rows($result) > 0){

@@ -1,5 +1,9 @@
 <?php
 	include("include/db_connect.php");
+    include("functions/functions.php");
+    
+    $cat = clear_string($_GET["cat"]);
+    $type = clear_string($_GET["type"]);
     
     $sorting= $_GET["sort"];
     
@@ -61,8 +65,34 @@
          include("include/block-news.php");
         ?>
     </div>
-    <div id="block-content">
-        <div id="block-sorting">
+    <div id="block-content">   
+    <?php
+    
+    if(!empty($cat) && !empty($type)){
+        
+        $querycat = "AND mark_auto='$cat' AND type_car='$type'";
+        $catlink = "cat=$cat&";
+    }else{
+        if(!empty($type)){
+            $querycat = "AND type_car='$type'";
+        }else{
+            $querycat = "";
+        }
+        
+        if(!empty($cat)){
+            $catlink = "cat='.$cat.'&";
+        }else{
+            $catlink = "";
+        }
+    }
+    
+    $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' $querycat ORDER BY $sorting",$link);
+      
+    if(mysql_numrows($result) > 0)
+      {
+        $row = mysql_fetch_array($result);
+        
+        echo '<div id="block-sorting">
             <p id="nav-breadcrumbs"><a href="index.php">Главная страница</a> \ <span>Все автомобили</span></p>
                 <ul id="option-list">
                     <li>Вид: </li>
@@ -70,23 +100,18 @@
                     <li><img id="style-list" src="images/icon-list.png"/></li>
                     
                     <li>Сортировать: </li>
-                    <li><a id="select-sort"><?php echo $sort_name;?></a>
+                    <li><a id="select-sort">'.$sort_name.'</a>
                         <ul id="sorting-list">
-                            <li><a href="index.php?sort=price-asc">От дешевых к дорогим</a></a></li>
-                            <li><a href="index.php?sort=price-desc">От дорогих к дешевым</a></a></li>
-                            <li><a href="index.php?sort=news">Новинки</a></a></li>
-                            <li><a href="index.php?sort=mark">От А-Я</a></a></li>              
+                            <li><a href="view_cat.php?'.$catlink.'type='.$type.'&sort=price-asc">От дешевых к дорогим</a></a></li>
+                            <li><a href="view_cat.php?'.$catlink.'&type='.$type.'&sort=price-desc">От дорогих к дешевым</a></a></li>
+                            <li><a href="view_cat.php?'.$catlink.'&type='.$type.'&sort=news">Новинки</a></a></li>
+                            <li><a href="view_cat.php?'.$catlink.'&type='.$type.'&sort=mark">От А-Я</a></a></li>              
                         </ul>  
                     </li>
                 </ul>
         </div>
-    <ul id="block-car-grid">    
-    <?php
-	  $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' ORDER BY $sorting",$link);
-      
-      if(mysql_numrows($result) > 0)
-      {
-        $row = mysql_fetch_array($result);
+        <ul id="block-car-grid">    
+        ';
         do{
             if  ($row["image"] != "" && file_exists("./uploads_images/".$row["image"])){
                     $img_path = './uploads_images/'.$row["image"];
@@ -104,8 +129,8 @@
                     $width = 80;
                     $height = 70;
                     } 
-            echo'<li>
-                    <div class="block-images-grid">
+        echo'<li>
+            <div class="block-images-grid">
                         <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />
                         <ul class="reviews-and-counts-grid">
                         <li><img src="/images/eye-icon.png"/><p>0</p></li>
@@ -120,14 +145,13 @@
                     </div>
                 </li>';
             
-        }while($row = mysql_fetch_array($result));
-      } 
+        }while($row = mysql_fetch_array($result)); 
     ?>
     </ul>
     
     <ul id="block-car-list">    
     <?php
-	  $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' ORDER BY $sorting",$link);
+	  $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' $querycat ORDER BY $sorting",$link);
       
       if(mysql_numrows($result) > 0)
       {
@@ -169,7 +193,10 @@
                 </li>';
             
         }while($row = mysql_fetch_array($result));
-      } 
+      }
+   }else{
+        echo '<h3>Категория недоступна или не создана</h3>';
+   }
     ?>
     </ul>    
     </div>
