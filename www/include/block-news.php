@@ -2,23 +2,18 @@
     <center><img id="news-prev" src="images/img-prev.png"/></center>
     <div id="newsticker">
         <ul>
-            <li>
-            <span>25.07.2013</span>
-            <a href="">Поступление новых авто из Калининграда</a>
-            <p>C июля до сентября во всех автосалонах - автомобили марки Honda с 10% скидкой</p>
-            </li>
-            
-            <li>
-            <span>25.07.2013</span>
-            <a href="">Поступление новых авто из Калининграда</a>
-            <p>C июля до сентября во всех автосалонах - автомобили марки Honda с 10% скидкой</p>
-            </li>
-            
-            <li>
-            <span>25.07.2013</span>
-            <a href="">Поступление новых авто из Калининграда</a>
-            <p>C июля до сентября во всех автосалонах - автомобили марки Honda с 10% скидкой</p>
-            </li>
+            <?php 
+                $result = mysql_query("SELECT * FROM news ORDER BY id DESC",$link);
+                    If (mysql_num_rows($result) > 0){
+                        $row = mysql_fetch_array($result);
+                        do{	
+echo '<li>
+            <span>'.$row["date"].'</span><a href="" >'.$row["title"].'</a><p>'.$row["text"].'</p>
+    </li>';
+    }
+    while ($row = mysql_fetch_array($result)); 
+}
+?>
         </ul>   
     </div>
     <center><img id="news-next" src="images/img-next.png"/></center>
