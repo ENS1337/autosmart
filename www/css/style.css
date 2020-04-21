@@ -282,14 +282,15 @@
 /* TrackBar */
 #blocktrackbar{
     width: 220px;
-    height: 20px;
-    border: 1px solid black;
+    height: 35px;
     margin-top: 20px;
+    padding-top: 5px;
     clear:both;
 }
 .checkbox-markauto li{
     font: 14px sans-serif;
     margin-top: 3px;
+    margin-left: 10px;
 }
 .checkbox-markauto input{
     margin-right: 8px;

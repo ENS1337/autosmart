@@ -5,35 +5,6 @@
     $cat = clear_string($_GET["cat"]);
     $type = clear_string($_GET["type"]);
     
-    $sorting= $_GET["sort"];
-    
-    switch ($sorting){
-        
-    case 'price-asc';
-    $sorting = 'price ASC';
-    $sort_name = 'От дешевых к дорогим';
-    break;
-
-    case 'price-desc';
-    $sorting = 'price DESC';
-    $sort_name = 'От дорогих к дешевым';
-    break;
-    
-    case 'news';
-    $sorting = 'datetime DESC';
-    $sort_name = 'Новинки';
-    break;
-    
-    case 'mark';
-    $sorting = 'mark_auto';
-    $sort_name = 'Новинки';
-    break;
-    
-    default:
-    $sorting = 'cars_id DESC';
-    $sort_name = 'Нет сортировки';
-    break;                            
-    }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -48,7 +19,9 @@
     <script type="text/javascript" src="/js/shop-script.js"></script>
     <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>
     <script type="text/javascript" src="/trackbar/jquery.trackbar.js"></script>
-	<title>Интернет-магазин по продаже автомобилей</title>
+    
+	           <title>Поиск по параметрам</title>
+        
         <style> 
             li{list-style-type: none}
             ul{list-style-type: none}
@@ -70,25 +43,18 @@
     <div id="block-content">   
     <?php
     
-    if(!empty($cat) && !empty($type)){
-        
-        $querycat = "AND mark_auto='$cat' AND type_car='$type'";
-        $catlink = "cat=$cat&";
-    }else{
-        if(!empty($type)){
-            $querycat = "AND type_car='$type'";
-        }else{
-            $querycat = "";
-        }
-        
-        if(!empty($cat)){
-            $catlink = "cat='.$cat.'&";
-        }else{
-            $catlink = "";
-        }
+    if($_GET["mark_auto"]){
+        $check_mark_auto = implode(',',$_GET["mark_auto"]);
+    }   
+    $start_price = (int)$_GET["start_price"];
+    $end_price = (int)$_GET["end_price"];
+    
+    if(!empty($check_mark_auto) OR !empty($end_price)){
+        if(!empty($check_mark_auto)) $query_mark_auto = "AND mark_auto_id IN($check_mark_auto)";
+        if(!empty($end_price)) $query_price = "AND price BETWEEN $start_price AND $end_price";
     }
     
-    $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' $querycat ORDER BY $sorting",$link);
+    $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' $query_mark_auto $query_price ORDER BY cars_id DESC",$link);
       
     if(mysql_numrows($result) > 0)
       {
@@ -153,7 +119,7 @@
     
     <ul id="block-car-list">    
     <?php
-	  $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' $querycat ORDER BY $sorting",$link);
+	  $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' $query_mark_auto $query_price ORDER BY cars_id DESC",$link);
       
       if(mysql_numrows($result) > 0)
       {
@@ -197,7 +163,7 @@
         }while($row = mysql_fetch_array($result));
       }
    }else{
-        echo '<h3>Категория недоступна или не создана</h3>';
+        echo '<h3>По вашему запросу ничего не найдено.</h3>';
    }
     ?>
     </ul>    
@@ -206,5 +172,5 @@
          include("include/block-footer.php");
         ?>            
     </div>
-</body>
+    </body>
 </html>
