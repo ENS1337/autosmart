@@ -187,8 +187,8 @@
         do{
             if  ($row["image"] != "" && file_exists("./uploads_images/".$row["image"])){
                     $img_path = './uploads_images/'.$row["image"];
-                    $max_width = 150; 
-                    $max_height = 150; 
+                    $max_width = 200; 
+                    $max_height = 200; 
                      list($width, $height) = getimagesize($img_path); 
                     $ratioh = $max_height/$height; 
                     $ratiow = $max_width/$width; 
