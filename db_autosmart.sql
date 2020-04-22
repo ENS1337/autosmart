@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 22 2020 г., 17:49
+-- Время создания: Апр 22 2020 г., 19:52
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -81,6 +81,27 @@ INSERT INTO `category_cars` (`id`, `type_car`, `mark_auto`) VALUES
 (25, 'passenger', 'Man'),
 (26, 'passenger', 'Peugeot'),
 (27, 'passenger', 'Volkswagen');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `reg_user`
+--
+
+CREATE TABLE IF NOT EXISTS `reg_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(100) NOT NULL,
+  `pass` varchar(100) NOT NULL,
+  `surname` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `patronymic` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `address` text NOT NULL,
+  `datetime` datetime NOT NULL,
+  `ip` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 

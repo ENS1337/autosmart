@@ -61,4 +61,18 @@ $(document).ready(function() {
     if ($.cookie('select_cat') != ''){
             $('#block-category > ul > li > #'+$.cookie('select_cat')).addClass('active').next().show();
     }
- });
+$('#genpass').click(function(){
+$.ajax({type: "POST",url: "/functions/genpass.php",
+dataType: "html",
+cache: false,
+success: function(data) {
+            $('#reg_pass').val(data);
+        }
+    });
+});
+
+$('#reload_captcha').click(function(){
+$('#block-captcha > img').attr("src","/reg/reg_captcha.php?r="+ Math.random());
+});
+
+}); 

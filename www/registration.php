@@ -15,6 +15,9 @@
     <script type="text/javascript" src="/js/shop-script.js"></script>
     <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>
     <script type="text/javascript" src="/trackbar/jquery.trackbar.js"></script>
+    <script type="text/javascript" src="/js/jquery.form.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="/js/check-validate.js"></script>
 	<title>Регистрация</title>
         <style> 
             li{list-style-type: none}
@@ -43,47 +46,47 @@
                     <li>
                         <label>Логин</label>
                         <span class="star">*</span>
-                        <input type="text" name="reg_login" id="reg-login"/>
+                        <input type="text" name="reg_login" id="reg_login"/>
                     </li>
                     <li>
                         <label>Пароль</label>
                         <span class="star">*</span>
-                        <input type="text" name="reg_pass" id="reg-pass"/>
+                        <input type="text" name="reg_pass" id="reg_pass"/>
                         <span id="genpass">Сгенерировать</span>
                     </li>
                     <li>
                         <label>Фамилия</label>
                         <span class="star">*</span>
-                        <input type="text" name="reg_surname" id="reg-surname"/>
+                        <input type="text" name="reg_surname" id="reg_surname"/>
                     </li>
                     <li>
                         <label>Имя</label>
                         <span class="star">*</span>
-                        <input type="text" name="reg_name" id="reg-name"/>
+                        <input type="text" name="reg_name" id="reg_name"/>
                     </li>
                     <li>
                         <label>Отчество</label>
                         <span class="star">*</span>
-                        <input type="text" name="reg_patronymic" id="reg-patronymic"/>
+                        <input type="text" name="reg_patronymic" id="reg_patronymic"/>
                     </li>
                     <li>
                         <label>E-mail</label>
                         <span class="star">*</span>
-                        <input type="text" name="reg_email" id="reg-email"/>
+                        <input type="text" name="reg_email" id="reg_email"/>
                     </li>
                     <li>
                         <label>Мобильный телефон</label>
                         <span class="star">*</span>
-                        <input type="text" name="reg_phone" id="reg-phone"/>
+                        <input type="text" name="reg_phone" id="reg_phone"/>
                     </li>
                     <li>
                         <label>Адрес</label>
                         <span class="star">*</span>
-                        <input type="text" name="reg_address" id="reg-address"/>
+                        <input type="text" name="reg_address" id="reg_address"/>
                     </li>
                     <li>
                         <div id="block-captcha">
-                            <img src="/reg/reg_captcha"/>
+                            <img src="/reg/reg_captcha.php"/>
                             <input type="text" name="reg_captcha" id="reg_captcha"/>
                             <p id="reload_captcha">Обновить</p>
                         </div>
