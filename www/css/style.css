@@ -124,7 +124,9 @@
     width: 345px;
     height: auto;
     margin-left: 700px;
-    margin-top: 23px; 
+    margin-top: 23px;
+    z-index: 999;
+    position: absolute; 
 }
 #block-search span{
     width: 13px;
@@ -481,13 +483,15 @@
 }
 /* Основной блок (Блок автомобилей) */
 #block-car-grid > li{
-    width: 390px;
+    width: 380px;
+    height: 230px;
     float: left;
-    margin-left: 10px;    
+    margin-left: 10px;
+    margin-top: 15px;   
 }
 .style-title-grid{
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .style-title-grid a{
     font: bold 15px sans-serif;
@@ -506,7 +510,6 @@
 .reviews-and-counts-grid{
     height: 20px;
     margin-top: 5px;
-    margin-left: 45px;
 }
 .reviews-and-counts-grid > li{
     float: left;
@@ -558,7 +561,7 @@
     height: auto;
 }
 #block-car-list{
-    display: none;     
+    display: none;
 }
 #block-car-list > li{
     border-bottom: 1px solid #E6E6E6;
@@ -585,8 +588,8 @@
     position: absolute;
 }
 .style-title-list{
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .style-title-list a{
     font: bold 15px sans-serif;
@@ -1083,4 +1086,32 @@
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
+}
+/*Поиск автомобилей*/
+#input_search_err{
+    text-align: center;
+    font: bold 16px sans-serif;
+}
+#search_err{
+    font: bold 20px sans-serif;
+    text-align: center;
+}
+#result-search{
+    display: none;
+    border-left: 1px solid #E1E1E2;
+    border-right: 1px solid #E1E1E2;
+    border-bottom: 1px solid #E1E1E2;
+    width: 275px;
+    height: auto;
+    background-color: white;
+}
+#result-search a{
+    font: 14px sans-serif;
+    text-decoration: none;
+    padding: 5px;
+    display: block;
+    color: black;
+}
+#result-search a:hover{
+    background-color: #F1F2F2;
 }

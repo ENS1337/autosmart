@@ -105,6 +105,7 @@ if ($_POST["save_submit"]){
     <script type="text/javascript" src="/js/shop-script.js"></script>
     <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>
     <script type="text/javascript" src="/trackbar/jquery.trackbar.js"></script>
+    <script type="text/javascript" src="/js/TextChange.js"></script>
 	<title>Интернет-магазин по продаже автомобилей</title>
         <style> 
             li{list-style-type: none}

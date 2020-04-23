@@ -72,16 +72,16 @@
     
     <form method="GET" action="search.php?q=">
     <span></span>
-    <input type="text" id="input-search" name="q" placeholder="Поиск автомобиля" />
+    <input type="text" id="input-search" name="q" placeholder="Поиск автомобиля" value="<?php echo $search;?>"/>
     <input type="submit" id="button-search" value="Поиск" />   
     </form>
-       
+    <ul id="result-search"></ul>   
     </div>   
 </div>
 
 <div id="top-menu">
     <ul>
-        <li><img src="/images/shop.png"/><a href="index.php">Главная</a></l>
+        <li><img src="/images/shop.png"/><a href="index.php">Главная</a></li>
         <li><img src="/images/new-32.png"/><a href="">Новинки</a></li>
         <li><img src="/images/bestprice-32.png"/><a href="">Лучшая Цена</a></li>
         <li><img src="/images/sale-32.png"/><a href="">Распродажа</a></li>  

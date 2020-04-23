@@ -4,9 +4,8 @@
     session_start();
     include("include/auth_cookie.php");
     
-    $cat = clear_string($_GET["cat"]);
-    $type = clear_string($_GET["type"]);
-    
+    $search = clear_string($_GET["q"]);
+      
     $sorting= $_GET["sort"];
     
     switch ($sorting){
@@ -51,7 +50,7 @@
     <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>
     <script type="text/javascript" src="/trackbar/jquery.trackbar.js"></script>
     <script type="text/javascript" src="/js/TextChange.js"></script>
-	<title>Интернет-магазин по продаже автомобилей</title>
+	<title>Поиск - <?php echo $search;?></title>
         <style> 
             li{list-style-type: none}
             ul{list-style-type: none}
@@ -70,31 +69,16 @@
          include("include/block-news.php");
         ?>
     </div>
-    <div id="block-content">   
+    <div id="block-content">
     <?php
-    
-    if(!empty($cat) && !empty($type)){
-        
-        $querycat = "AND mark_auto='$cat' AND type_car='$type'";
-        $catlink = "cat=$cat&";
-    }else{
-        if(!empty($type)){
-            $querycat = "AND type_car='$type'";
-        }else{
-            $querycat = "";
-        }
-        
-        if(!empty($cat)){
-            $catlink = "cat='.$cat.'&";
-        }else{
-            $catlink = "";
-        }
-    }
-    
-    $num = 2; // Здесь указываем сколько хотим выводить товаров.
+	   if(strlen($search) >= 3 && strlen($search) <= 32){
+    ?>
+    <ul id="block-car-grid">    
+    <?php
+    $num = 6; // Здесь указываем сколько хотим выводить товаров.
     $page = (int)$_GET['page'];              
     
-	$count = mysql_query("SELECT COUNT(*) FROM table_cars WHERE visible = '1' $querycat",$link);
+	$count = mysql_query("SELECT COUNT(*) FROM table_cars WHERE title LIKE '%$search%' AND visible = '1'",$link);
     $temp = mysql_fetch_array($count);
 
 	If ($temp[0] > 0)
@@ -117,32 +101,31 @@
 
 	$query_start_num = " LIMIT $start, $num"; 
 	}
-    $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' $querycat ORDER BY $sorting $query_start_num",$link);
-      
-    if(mysql_numrows($result) > 0)
-      {
-        $row = mysql_fetch_array($result);
-        
-        echo '<div id="block-sorting">
+    If ($temp[0] > 0)
+	{
+	   echo ' <div id="block-sorting">
             <p id="nav-breadcrumbs"><a href="index.php">Главная страница</a> \ <span>Все автомобили</span></p>
                 <ul id="option-list">
                     <li>Вид: </li>
                     <li><img id="style-grid" src="images/icon-grid.png"/></li>
                     <li><img id="style-list" src="images/icon-list.png"/></li>
-                    
                     <li>Сортировать: </li>
                     <li><a id="select-sort">'.$sort_name.'</a>
                         <ul id="sorting-list">
-                            <li><a href="view_cat.php?'.$catlink.'type='.$type.'&sort=price-asc">От дешевых к дорогим</a></a></li>
-                            <li><a href="view_cat.php?'.$catlink.'&type='.$type.'&sort=price-desc">От дорогих к дешевым</a></a></li>
-                            <li><a href="view_cat.php?'.$catlink.'&type='.$type.'&sort=news">Новинки</a></a></li>
-                            <li><a href="view_cat.php?'.$catlink.'&type='.$type.'&sort=mark">От А-Я</a></a></li>              
+                            <li><a href="index.php?sort=price-asc">От дешевых к дорогим</a></a></li>
+                            <li><a href="index.php?sort=price-desc">От дорогих к дешевым</a></a></li>
+                            <li><a href="index.php?sort=news">Новинки</a></a></li>
+                            <li><a href="index.php?sort=mark">От А-Я</a></a></li>              
                         </ul>  
                     </li>
                 </ul>
-        </div>
-        <ul id="block-car-grid">    
-        ';
+        </div>';   
+    
+	  $result = mysql_query("SELECT * FROM table_cars WHERE title LIKE '%$search%' AND visible='1' ORDER BY $sorting $query_start_num",$link);
+      
+      if(mysql_numrows($result) > 0)
+      {
+        $row = mysql_fetch_array($result);
         do{
             if  ($row["image"] != "" && file_exists("./uploads_images/".$row["image"])){
                     $img_path = './uploads_images/'.$row["image"];
@@ -160,8 +143,8 @@
                     $width = 80;
                     $height = 70;
                     } 
-        echo'<li>
-            <div class="block-images-grid">
+            echo'<li>
+                    <div class="block-images-grid">
                         <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />
                         <ul class="reviews-and-counts-grid">
                         <li><img src="/images/eye-icon.png"/><p>0</p></li>
@@ -176,13 +159,14 @@
                     </div>
                 </li>';
             
-        }while($row = mysql_fetch_array($result)); 
+        }while($row = mysql_fetch_array($result));
+      } 
     ?>
     </ul>
     
     <ul id="block-car-list">    
     <?php
-	  $result = mysql_query("SELECT * FROM table_cars WHERE visible='1' $querycat ORDER BY $sorting $query_start_num",$link);
+	  $result = mysql_query("SELECT * FROM table_cars WHERE title LIKE '%$search%' AND visible='1' ORDER BY $sorting $query_start_num",$link);
       
       if(mysql_numrows($result) > 0)
       {
@@ -225,30 +209,29 @@
             
         }while($row = mysql_fetch_array($result));
       }
-   }else{
-        echo '<h3>Категория недоступна или не создана</h3>';
-   }
-   echo  '</ul>';
+      ?>
+      </ul>;
+      <?php
       /*Постраничная навигация товаров*/
-      if ($page != 1){ $pstr_prev = '<li><a class="pstr-prev" href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page - 1).'">&lt;</a></li>';}
-      if ($page != $total) $pstr_next = '<li><a class="pstr-next" href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page + 1).'">&gt;</a></li>';
+      if ($page != 1){ $pstr_prev = '<li><a class="pstr-prev" href="search.php?q='.$search.'&page='.($page - 1).'">&lt;</a></li>';}
+      if ($page != $total) $pstr_next = '<li><a class="pstr-next" href="search.php?q='.$search.'&page='.($page + 1).'">&gt;</a></li>';
 
 
         // Формируем ссылки со страницами
-            if($page - 5 > 0) $page5left = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page - 5).'">'.($page - 5).'</a></li>';
-            if($page - 4 > 0) $page4left = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page - 4).'">'.($page - 4).'</a></li>';
-            if($page - 3 > 0) $page3left = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page - 3).'">'.($page - 3).'</a></li>';
-            if($page - 2 > 0) $page2left = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page - 2).'">'.($page - 2).'</a></li>';
-            if($page - 1 > 0) $page1left = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page - 1).'">'.($page - 1).'</a></li>';
+            if($page - 5 > 0) $page5left = '<li><a href="search.php?q='.$search.'&page='.($page - 5).'">'.($page - 5).'</a></li>';
+            if($page - 4 > 0) $page4left = '<li><a href="search.php?q='.$search.'&page='.($page - 4).'">'.($page - 4).'</a></li>';
+            if($page - 3 > 0) $page3left = '<li><a href="search.php?q='.$search.'&page='.($page - 3).'">'.($page - 3).'</a></li>';
+            if($page - 2 > 0) $page2left = '<li><a href="search.php?q='.$search.'&page='.($page - 2).'">'.($page - 2).'</a></li>';
+            if($page - 1 > 0) $page1left = '<li><a href="search.php?q='.$search.'&page='.($page - 1).'">'.($page - 1).'</a></li>';
             
-            if($page + 5 <= $total) $page5right = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page + 5).'">'.($page + 5).'</a></li>';
-            if($page + 4 <= $total) $page4right = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page + 4).'">'.($page + 4).'</a></li>';
-            if($page + 3 <= $total) $page3right = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page + 3).'">'.($page + 3).'</a></li>';
-            if($page + 2 <= $total) $page2right = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page + 2).'">'.($page + 2).'</a></li>';
-            if($page + 1 <= $total) $page1right = '<li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.($page + 1).'">'.($page + 1).'</a></li>';
+            if($page + 5 <= $total) $page5right = '<li><a href="search.php?q='.$search.'&page='.($page + 5).'">'.($page + 5).'</a></li>';
+            if($page + 4 <= $total) $page4right = '<li><a href="search.php?q='.$search.'&page='.($page + 4).'">'.($page + 4).'</a></li>';
+            if($page + 3 <= $total) $page3right = '<li><a href="search.php?q='.$search.'&page='.($page + 3).'">'.($page + 3).'</a></li>';
+            if($page + 2 <= $total) $page2right = '<li><a href="search.php?q='.$search.'&page='.($page + 2).'">'.($page + 2).'</a></li>';
+            if($page + 1 <= $total) $page1right = '<li><a href="search.php?q='.$search.'&page='.($page + 1).'">'.($page + 1).'</a></li>';
             
             if ($page+5 < $total){
-                    $strtotal = '<li><p class="nav-point">...</p></li><li><a href="view_cat.php?cat='.$cat.'&type='.$type.'&page='.$total.'">'.$total.'</a></li>';
+                    $strtotal = '<li><p class="nav-point">...</p></li><li><a href="search.php?q='.$search.'&page='.$total.'">'.$total.'</a></li>';
                 }else{
                 $strtotal = ""; 
                 }
@@ -257,13 +240,20 @@
                 <div class="pstrnav">
                 <ul>
                 ';
-                echo $pstr_prev.$page5left.$page4left.$page3left.$page2left.$page1left."<li><a class='pstr-active' href='view_cat.php?cat='.$cat.'&type='.$type.'&page=".$page."'>".$page."</a></li>".$page1right.$page2right.$page3right.$page4right.$page5right.$strtotal.$pstr_next;
+                echo $pstr_prev.$page5left.$page4left.$page3left.$page2left.$page1left."<li><a class='pstr-active' href='index.php?page=".$page."'>".$page."</a></li>".$page1right.$page2right.$page3right.$page4right.$page5right.$strtotal.$pstr_next;
                 echo '
                 </ul>
                 </div>
                 ';
-            }  
-    ?>    
+            }
+        }else{
+            echo '<p id="search_err">Ничего не найдено!</p>';
+        }
+        }else
+            {
+                echo '<p id="input_search_err">Поисковое значение должно быть от 3 до 32 символов!</p>';
+            }
+    ?>  
     </div>
     <?php
          include("include/block-footer.php");

@@ -21,6 +21,7 @@
     <script type="text/javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.js"></script>
     <script type="text/javascript" src="/js/check-validate.js"></script>
+    <script type="text/javascript" src="/js/TextChange.js"></script>
 	<title>Регистрация</title>
         <style> 
             li{list-style-type: none}
