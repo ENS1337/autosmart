@@ -802,3 +802,104 @@
     padding-left: 10px;
     display: none;
 }
+/*Страница входа (block-header.php)*/
+#block-top-auth{
+    border: 1px solid #DBDBDB;
+    width: 210px;
+    height: auto;
+    margin-left: 719px;
+    margin-top: 45px;
+    background-color: white;
+    position: absolute;
+    z-index: 9999;
+    -moz-box-shadow: 0 0 15px #DBDBDB;
+    -webkit-box-shadow: 0 0 15px #DBDBDB;
+    box-shadow: 0 0 15px #DBDBDB;
+    display: none;
+}
+.corner{
+    background: url(/images/bulleticon.png);
+    width: 19px;
+    height: 10px;
+    margin-left: 180px;
+    margin-top: -9px;   
+}
+#input-email-pass h3{
+    font: 15px sans-serif;
+    margin: 10px;
+}
+#message-auth {
+    font: bold 13px sans-serif;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #FDE7E7;
+    color: red;
+    display: none;
+}
+#input-email-pass > li{
+    margin-top: 7px;
+}
+#input-email-pass input#auth_login,
+#input-email-pass input#auth_pass{
+    width: 180px;
+    height: 25px;
+    font: 15px sans-serif;
+    border: 1px solid #DBDBDB;
+    padding-left: 5px;
+}
+.pass-show{
+    background: url(/images/open_eye.png) no-repeat;
+}
+.pass-hide{
+    background: url(/images/eye_closed.png) no-repeat;
+}
+#input-email-pass span{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+    position: absolute;
+    margin-left: -28px;
+}
+#list-auth{
+    margin-top: 12px;
+}
+#list-auth li{
+    margin-top: 5px;
+    margin-left: 10px;
+    font: 14px sans-serif;
+}
+#list-auth a{
+    color: black;
+    text-decoration: none;
+    margin-left: 3px;
+    border-bottom: 1px dashed;
+}
+#list-auth a:hover{
+    border-bottom: none;
+}
+#button-auth a{
+    margin-right: 10px;
+    cursor: pointer;
+    background: url(/images/button-grd.png) repeat-x;
+    font: bold 13px sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px; /* остальные */
+    -webkit-border-radius:5px ; /* safari */
+    -moz-border-radius:5px ; /* firefox */ 
+}
+#button-auth a:hover{
+    background: url(/images/button-grd-hover.png) repeat-x;
+}
+#button-auth a:active{
+    background: url(/images/button-grd-active.png) repeat-x;
+}
+.auth-loading{
+    margin-right: 30px;
+    margin-top: 20px;
+    display: none;
+}
