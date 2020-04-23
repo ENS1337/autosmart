@@ -39,6 +39,7 @@ $(document).ready(function() {
     $("#select-sort").click(function(){
         $("#sorting-list").slideToggle(200);
     });
+    /*Слайдинг блока категорий*/
      $('#block-category > ul > li > a').click(function(){
                	        
             if ($(this).attr('class') != 'active'){
@@ -57,20 +58,23 @@ $(document).ready(function() {
                     $('#block-category > ul > li > ul').slideUp(400);
                     $.cookie('select_cat', '');   
                 }                                  
-        });
+                });
     if ($.cookie('select_cat') != ''){
             $('#block-category > ul > li > #'+$.cookie('select_cat')).addClass('active').next().show();
     }
-$('#genpass').click(function(){
-$.ajax({type: "POST",url: "/functions/genpass.php",
-dataType: "html",
-cache: false,
-success: function(data) {
+    /*Генерация пароля пароля*/
+    $('#genpass').click(function(){
+    $.ajax({
+    type: "POST",
+    url: "/functions/genpass.php",
+    dataType: "html",
+    cache: false,
+    success: function(data) {
             $('#reg_pass').val(data);
         }
     });
 });
-
+/*Обновить капчу*/
 $('#reload_captcha').click(function(){
 $('#block-captcha > img').attr("src","/reg/reg_captcha.php?r="+ Math.random());
 });
@@ -85,7 +89,7 @@ $('.top-auth').toggle(
        }
     );
 
-
+/*Показать/скрыть пароль*/
 $('#button-pass-hide-show').click(function(){
  var statuspass = $('#button-pass-hide-show').attr("class");
   
@@ -124,6 +128,7 @@ $('#button-pass-hide-show').click(function(){
 
 
 });
+/*Кнопка входа на сайт*/
 $("#button-auth").click(function() {        
  var auth_login = $("#auth_login").val();
  var auth_pass = $("#auth_pass").val();
@@ -173,7 +178,52 @@ $("#button-auth").click(function() {
 });
 }  
 });
+/*Окно востановления пароля*/
+$('#remindpass').click(function(){    
+			$('#input-email-pass').fadeOut(200, function() {  
+            $('#block-remind').fadeIn(300);
+			});
+});
+$('#prev-auth').click(function(){
+			$('#block-remind').fadeOut(200, function() {  
+            $('#input-email-pass').fadeIn(300);
+			});
+});
+$('#button-remind').click(function(){
+    
+ var recall_email = $("#remind-email").val();
+ 
+ if (recall_email == "" || recall_email.length > 20 )
+ {
+    $("#remind-email").css("borderColor","#FDB6B6");
 
-
-
+ }else 
+ {
+   $("#remind-email").css("borderColor","#DBDBDB");
+   
+   $("#button-remind").hide();
+   $(".auth-loading").show();
+    
+  $.ajax({
+  type: "POST",
+  url: "/include/remind-pass.php",
+  data: "email="+recall_email,
+  dataType: "html",
+  cache: false,
+  success: function(data) {
+  if (data == 'yes'){
+     $(".auth-loading").hide();
+     $("#button-remind").show();
+     $('#message-remind').attr("class","message-remind-success").html("На ваш e-mail выслан пароль.").slideDown(400);
+     
+     setTimeout("$('#message-remind').html('').hide(),$('#block-remind').FadeOut(300),$('#input-email-pass').show()", 3000);
+     }else{
+      $(".auth-loading").hide();
+      $("#button-remind").show();
+      $('#message-remind').attr("class","message-remind-error").html(data).slideDown(400);
+      }
+      }
+      }); 
+     }
+  });
 }); 
