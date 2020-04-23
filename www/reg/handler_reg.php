@@ -2,7 +2,7 @@
  if($_SERVER["REQUEST_METHOD"] == "POST")
 { 
  session_start();
- define('myeshop', true);
+ 
  include("../include/db_connect.php");
  include("../functions/functions.php");
      $error = array();

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 22 2020 г., 19:52
+-- Время создания: Апр 23 2020 г., 18:41
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -101,7 +101,14 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
   `datetime` datetime NOT NULL,
   `ip` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `reg_user`
+--
+
+INSERT INTO `reg_user` (`id`, `login`, `pass`, `surname`, `name`, `patronymic`, `email`, `phone`, `address`, `datetime`, `ip`) VALUES
+(3, 'admin', '9nm2rv8q95739c8b24fc0eb7ad5b2147f029aecf2yo6z', 'Ssdssdsd', 'Артём', 'фывфывф', 'sadadsasd@sdsdsds.sw', '123134532', 'adwdadada', '2020-04-23 17:40:27', '127.0.0.1');
 
 -- --------------------------------------------------------
 

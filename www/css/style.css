@@ -30,7 +30,7 @@
 #header-top-menu li{
     font: 15px sans-serif;
     float: left;
-    margin-top: 2px;
+    margin-top: 10px;
     padding-left: 5px;
     padding-right: 10px;
     border-right: 1px solid #E3E3E3; /*color gray*/
@@ -50,9 +50,12 @@
 }
 /* Блок с кнопками Вход и Регистрация */
 #reg-auth-title{
-    margin-top: 2px;
+    margin-top: 10px;
     margin-right: 10px;
     float: right;
+}
+#reg-auth-title > a#active-button{
+    background: url(/images/auth-butt-bg-click.png);
 }
 #reg-auth-title a.top-auth{
     font: bold 13px sans-serif;
@@ -902,4 +905,20 @@
     margin-right: 30px;
     margin-top: 20px;
     display: none;
+}
+#auth-user-info{
+    font: bold 14px sans-serif;
+    margin-top: 10px;
+    margin-right: 20px;
+    float: right;
+}
+#auth-user-info:hover{
+    color: #CF3A3A;
+    border-bottom: 1px dashed #CF3A3A;
+    cursor: pointer;
+}
+#auth-user-info > img{
+    position: absolute;
+    margin-left: -30px;
+    margin-top: -3px;
 }
