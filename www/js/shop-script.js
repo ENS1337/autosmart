@@ -161,7 +161,7 @@ $("#button-auth").click(function() {
     
   $.ajax({
   type: "POST",
-  url: "include/auth.php",
+  url: "/include/auth.php",
   data: "login="+auth_login+"&pass="+auth_pass+"&rememberme="+auth_rememberme,
   dataType: "html",
   cache: false,
@@ -226,4 +226,30 @@ $('#button-remind').click(function(){
       }); 
      }
   });
+  
+/*Блок Пользователя и кнопка выход*/ 
+$('#auth-user-info').toggle(
+       function() {
+           $("#block-user").fadeIn(100);
+       },
+       function() {
+           $("#block-user").fadeOut(100);
+       }
+    );
+
+
+$('#logout').click(function(){
+    
+    $.ajax({
+    type: "POST",
+    url: "/include/logout.php",
+    dataType: "html",
+    cache: false,
+    success: function(data) {
+        if (data == 'logout') location.reload(); 
+        }
+    }); 
+});
+  
+  
 }); 
