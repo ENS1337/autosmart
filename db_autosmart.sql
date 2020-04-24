@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 24 2020 г., 17:44
+-- Время создания: Апр 25 2020 г., 02:06
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -33,7 +33,17 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `cart_datetime` datetime NOT NULL,
   `cart_ip` varchar(100) NOT NULL,
   PRIMARY KEY (`cart_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Дамп данных таблицы `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `cart_id_cars`, `cart_price`, `cart_datetime`, `cart_ip`) VALUES
+(5, 3, 213213, '2020-04-08 17:11:31', '127.0.0.1'),
+(6, 6, 212452, '2020-04-15 16:16:34', '127.0.0.1'),
+(7, 7, 1253452, '2020-04-08 10:30:15', '127.0.0.1'),
+(8, 2, 124412, '2020-04-25 10:41:09', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -100,14 +110,15 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
   `datetime` datetime NOT NULL,
   `ip` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Дамп данных таблицы `reg_user`
 --
 
 INSERT INTO `reg_user` (`id`, `login`, `pass`, `surname`, `name`, `patronymic`, `email`, `phone`, `address`, `datetime`, `ip`) VALUES
-(4, 'admin', '9nm2rv8q0cc4856e4fbbab44b76c641ed8c0bb5f2yo6z', 'Иванчик', 'Иван', 'Иванович', 'sokol0198@yandex.ru', '89134352256', 'г. Новосибирск, ул Титова 223', '2020-04-23 18:37:50', '127.0.0.1');
+(4, 'admin', '9nm2rv8q0cc4856e4fbbab44b76c641ed8c0bb5f2yo6z', 'Иванчик', 'Иван', 'Иванович', 'sokol0198@yandex.ru', '89134352256', 'г. Новосибирск, ул Титова 223', '2020-04-23 18:37:50', '127.0.0.1'),
+(5, 'sokol0198', '9nm2rv8q7e9522f9908fc588871b760d22e633fe2yo6z', 'asdada', 'sadasdad', 'sadasdad', 'sokiu@sdad.rt', '111', 'asdasdsad', '2020-04-25 00:14:26', '127.0.0.1');
 
 -- --------------------------------------------------------
 
