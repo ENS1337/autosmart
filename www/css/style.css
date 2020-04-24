@@ -1120,3 +1120,154 @@
 #result-search a:hover{
     background-color: #F1F2F2;
 }
+/*Стили для Корзины заказов*/ 
+#block-step {
+    height: 70px;
+    margin-top: 10px;
+}
+#block-step > p{
+    font: 19px sans-serif;
+    color: #646464;
+    margin-top: 8px;
+    margin-left: 15px;
+    position: absolute;
+}
+#block-step > a{
+    position: absolute;
+    border: 1px solid #D98386; 
+    font:bold 13px sans-serif;
+    padding-left: 7px;  
+    padding-right: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 5px;
+    margin-left: 700px;
+    text-decoration: none;
+    color: white;
+    background-color: #DA2027;  
+    border-radius:5px; 
+    -webkit-border-radius:5px; 
+    -moz-border-radius:5px; 
+}
+#name-step{
+    height: 30px;
+}
+#name-step li{
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#name-step a{
+    color: #00658B;
+    font: bold 14px sans-serif;
+    text-decoration: none;
+}
+#name-step a.active{
+    color: #EF662B;
+    font: bold 14px sans-serif;
+    border-bottom: 1px dashed #EF662B;
+    
+}
+#header-list-cart{
+    height: 30px;
+}
+#header-list-cart > div{
+    float: left;
+    margin-left: 5px;
+    text-align: center;
+    font: bold 13px sans-serif;
+    color: #6D6D6D;
+    margin-top: 7px;
+}
+#head1{width: 200px;}
+#head2{width: 400px;}
+#head3{width: 140px;}
+.block-list-cart{
+    height: 180px;
+}
+.block-list-cart > div{
+    float: left;
+    margin-left: 5px;
+}
+.img-cart{
+    width: 200px;
+    height: 150px;
+}
+.title-cart{
+    width: 400px;
+    height: 150px;
+}
+.title-cart > p{
+    margin-left: 20px;
+    padding-bottom: 10px;
+}
+.title-cart > p > a{
+    margin-left: -10px;
+}
+.price-cars{
+    width: 140px;
+    height: 150px;
+}
+.delete-cart{
+    height: 150px;
+}
+.title-cart > p{
+    margin-top: 15px;
+}
+.title-cart > p > a{
+    font: 15px sans-serif;
+    color: #097A9F;
+}
+.title-cart > p > a:hover{
+    text-decoration: none;
+}
+.price-cars p{
+    margin-left: 15px;
+    margin-top: 90px;
+    font: bold 18px sans-serif;
+}
+.price-cars h5{
+    position: absolute;
+    font: 15px sans-serif;
+    margin-top: 52px;
+    margin-left: 15px;
+    color: #848484;
+}
+.delete-cart img{
+    margin-top: 60px;
+}
+#bottom-cart-line{
+    background: url(/images/bottom-line.png);
+    height: 5px;
+    width: 790px;
+    margin-top: 30px;
+}
+.itog-price{
+    font: 20px sans-serif;
+}
+.itog-price > strong{
+    font:18px sans-serif;
+}
+.button-next{
+    margin-top: 30px;
+    margin-right: 20px;
+}
+.button-next > a{
+    border: 1px solid #B0C181;
+    font:15px sans-serif;
+    color: white;  
+    padding-left: 18px;  
+    padding-right: 18px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-decoration: none;  
+    background: url(/images/grd-next.png);  
+    border-radius:6px; 
+   -webkit-border-radius:6px; 
+   -moz-border-radius:6px;    
+}
+#clear-cart{
+    font: 22px sans-serif;
+    margin-top: 40px;
+}
+

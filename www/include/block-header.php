@@ -86,6 +86,6 @@
         <li><img src="/images/bestprice-32.png"/><a href="view_aystopper.php?go=leaders">Лучшая Цена</a></li>
         <li><img src="/images/sale-32.png"/><a href="view_aystopper.php?go=sale">Распродажа</a></li>  
     </ul>
-    <p align="right" id="block-basket"><img src="/images/cart-icon.png"/><a href="">Корзина пуста</a></p>
+    <p align="right" id="block-basket"><img src="/images/cart-icon.png"/><a href="cart.php?action=onclick">Корзина пуста</a></p>
     <div id="nav-line"></div>
 </div>

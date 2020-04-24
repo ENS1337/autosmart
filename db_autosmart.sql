@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 24 2020 г., 15:14
+-- Время создания: Апр 24 2020 г., 17:44
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -30,11 +30,10 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `cart_id` int(11) NOT NULL AUTO_INCREMENT,
   `cart_id_cars` int(11) NOT NULL,
   `cart_price` int(11) NOT NULL,
-  `cart_count` int(11) NOT NULL,
   `cart_datetime` datetime NOT NULL,
   `cart_ip` varchar(100) NOT NULL,
   PRIMARY KEY (`cart_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
