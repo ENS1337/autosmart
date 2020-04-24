@@ -487,7 +487,7 @@
     height: 230px;
     float: left;
     margin-left: 10px;
-    margin-top: 15px;   
+    margin-bottom: -15px;   
 }
 .style-title-grid{
     margin-top: 0;
@@ -510,11 +510,12 @@
 .reviews-and-counts-grid{
     height: 20px;
     margin-top: 5px;
+    margin-left: 40px;
 }
 .reviews-and-counts-grid > li{
     float: left;
     margin-left: 10px;
-    margin-top: 3px;
+    margin-top: 0;
 }
 .reviews-and-counts-grid > li > p{
     margin-left: 25px;
@@ -526,7 +527,7 @@
     position: absolute;
 }
 .style-price-grid{
-    font: 16px sans-serif;
+    font: 14px sans-serif;
     margin-top: 7px;
 }
 .style-price-grid strong{
@@ -586,6 +587,7 @@
 }
 .reviews-and-counts-list > li > img{
     position: absolute;
+    float: right;
 }
 .style-title-list{
     margin-top: 0;
@@ -1088,11 +1090,14 @@
     padding-left: 10px;
 }
 /*Поиск автомобилей*/
-#input_search_err{
+/*Новинки,лидеры продаж,распродажа*/
+#input_search_err,
+#aystopper-cat-err{
     text-align: center;
     font: bold 16px sans-serif;
 }
-#search_err{
+#search_err,
+#aystopper-err{
     font: bold 20px sans-serif;
     text-align: center;
 }

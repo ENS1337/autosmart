@@ -72,9 +72,7 @@
     <div id="block-content">
     <?php
 	   if(strlen($search) >= 3 && strlen($search) <= 32){
-    ?>
-    <ul id="block-car-grid">    
-    <?php
+	       
     $num = 6; // Здесь указываем сколько хотим выводить товаров.
     $page = (int)$_GET['page'];              
     
@@ -119,8 +117,10 @@
                         </ul>  
                     </li>
                 </ul>
-        </div>';   
-    
+        </div>';
+       ?>
+       <ul id="block-car-grid">
+       <?php    
 	  $result = mysql_query("SELECT * FROM table_cars WHERE title LIKE '%$search%' AND visible='1' ORDER BY $sorting $query_start_num",$link);
       
       if(mysql_numrows($result) > 0)
@@ -210,7 +210,7 @@
         }while($row = mysql_fetch_array($result));
       }
       ?>
-      </ul>;
+      </ul>
       <?php
       /*Постраничная навигация товаров*/
       if ($page != 1){ $pstr_prev = '<li><a class="pstr-prev" href="search.php?q='.$search.'&page='.($page - 1).'">&lt;</a></li>';}
