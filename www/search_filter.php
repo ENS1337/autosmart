@@ -110,7 +110,7 @@
                     </div>
                     <p class="style-title-grid"><a href="">'.$row["title"].'</a></p>
                     <a class="add-cart-style-grid"></a>
-                    <p class="style-price-grid"><strong>'.$row["price"].'</strong> руб.</p>
+                    <p class="style-price-grid"><strong>'.group_numerals($row["price"]).'</strong> руб</p>
                     <div class="mini-featurescar">
                         '.$row["mini_featurescar"].'
                     </div>
@@ -157,7 +157,7 @@
                     <p class="style-title-list"><a href="">'.$row["title"].'</a></p>
                     <a class="add-cart-style-list"></a>
                     
-                    <p class="style-price-list"><strong>'.$row["price"].'</strong> руб.</p>
+                    <p class="style-price-list"><strong>'.group_numerals($row["price"]).'</strong> руб</p>
                     <div class="mini-description-list">
                         '.$row["mini_description"].'
                     </div>

@@ -136,7 +136,11 @@ If (mysql_num_rows($result) > 0)
                         <p class="cart-mini_featurescar">'.$row["mini_featurescar"].'</p>
                     </div>
                     <div class="price-cars">
-                        <h5><span>'.$int.'</span><p> руб.</p></h5>
+                        <strong>Стоимость:</strong>
+                        <ul id="price-cart">
+                            <li><h5><span>'.group_numerals($int).'</span></h5></li>
+                            <li><p> руб.</p></li>
+                        </ul>
                     </div>
                     <div class="delete-cart">
                         <a href="cart.php?id='.$row["cart_id"].'&action=delete"><img src="images/bsk_item_del.png"/></a>
@@ -145,7 +149,7 @@ If (mysql_num_rows($result) > 0)
                     </div>';
                     }while ($row = mysql_fetch_array($result));
                     echo '
-               <h2 class="itog-price" align="right">Итого: <strong>'.$all_price.'</strong> руб</h2>
+               <h2 class="itog-price" align="right">Итого: <strong>'.group_numerals($all_price).'</strong> руб</h2>
                <p align="right" class="button-next" ><a href="cart.php?action=confirm">Далее</a></p> ';
                 }
                 else{
@@ -238,7 +242,7 @@ If (mysql_num_rows($result) > 0)
                 </ul>';
                 }
                 echo '
-                    <h2 class="itog-price" align="right">Итого: <strong>'.$itogpricecart.'</strong> руб</h2>
+                    <h2 class="itog-price" align="right">Итого: <strong>'.group_numerals($itogpricecart).'</strong> руб</h2>
                     <p align="right" class="button-next" ><a href="" >Оплатить</a></p>';
                 break;
 
@@ -298,17 +302,20 @@ If (mysql_num_rows($result) > 0)
                         <p class="cart-mini_featurescar">'.$row["mini_featurescar"].'</p>
                     </div>
                     <div class="price-cars">
-                        <h5><span>'.$int.'</span></h5><p>'.$int.'</p>
+                        <strong>Стоимость:</strong>
+                        <ul id="price-cart">
+                            <li><h5><span>'.group_numerals($int).'</span></h5></li>
+                            <li><p> руб.</p></li>
+                        </ul>
                     </div>
                     <div class="delete-cart">
                         <a href="cart.php?id='.$row["cart_id"].'&action=delete"><img src="images/bsk_item_del.png"/></a>
                     </div>
                     <div id="bottom-cart-line"></div>
-                    </div>
                     </div>';
                     }while ($row = mysql_fetch_array($result));
                     echo '
-               <h2 class="itog-price" align="right">Итого: <strong>'.$all_price.'</strong> руб</h2>
+               <h2 class="itog-price" align="right">Итого: <strong>'.group_numerals($all_price).'</strong> руб</h2>
                <p align="right" class="button-next" ><a href="cart.php?action=confirm">Далее</a></p> ';
                 }
                 else{

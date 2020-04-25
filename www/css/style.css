@@ -186,6 +186,9 @@
     margin-top: 5px;
     margin-right: -3px;
 }
+#block-basket span{
+    color: #EF662B;
+}
 #block-basket a{
     font: bold 15px sans-serif;
     text-decoration: none;
@@ -505,7 +508,7 @@
     width: auto;
     height: 230px;    
     float: left;
-    margin-right: 15px;   
+    margin-right: 10px;   
 }
 .reviews-and-counts-grid{
     height: 20px;
@@ -531,7 +534,7 @@
     margin-top: 7px;
 }
 .style-price-grid strong{
-    font: 20px sans-serif;
+    font: 18px sans-serif;
     color: #6B6D73;
 }
 .add-cart-style-grid{
@@ -557,7 +560,7 @@
 /*Линейный стиль магазина*/
 .block-images-list{
     float: left;
-    margin-right: 15px;
+    margin-right: 10px;
     min-height: 160px;
     height: auto;
 }
@@ -610,6 +613,7 @@
     margin-top: 8px;
     margin-right: 10px;
     background: url(/images/add-cart-norm.png);
+    background-repeat: no-repeat;
 }
 .add-cart-style-list:hover{
     background: url(/images/add-cart-hover.png);
@@ -1180,22 +1184,21 @@
     margin-top: 7px;
 }
 #head1{width: 200px;}
-#head2{width: 400px;}
-#head3{width: 140px;}
+#head2{width: 300px;}
+#head3{width: 240px;}
 .block-list-cart{
     width: 800px;
     height: 200px;
 }
 .block-list-cart > div{
     float: left;
-    margin-left: 5px;
 }
 .img-cart{
     width: 200px;
     height: 150px;
 }
 .title-cart{
-    width: 400px;
+    width: 300px;
     height: 150px;
 }
 .title-cart > p{
@@ -1209,7 +1212,7 @@
     margin-left: -10px;
 }
 .price-cars{
-    width: 140px;
+    width: 240px;
     height: 150px;
 }
 .delete-cart{
@@ -1218,17 +1221,23 @@
 .title-cart > p > a:hover{
     text-decoration: none;
 }
-.price-cars h5{
+.price-cars strong{
     position: absolute;
-    font: 18px sans-serif;
-    margin-top: 70px;
-    color: #848484;
+    margin-left: 50px;
+    margin-top: 55px;
+    font:18px sans-serif;
 }
-.price-cars h5 > p{
-    position: absolute;
+#price-cart{
+    margin-left: 50px; 
+}
+#price-cart li{
+    float: left;
+    padding-right: 5px;
+}
+#price-cart h5,
+#price-cart p{
+    margin-top: 80px;
     font: 18px sans-serif;
-    margin-left: 80px;
-    margin-top: -21px;
     color: #848484;
 }
 .delete-cart img{
