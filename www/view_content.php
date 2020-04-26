@@ -37,8 +37,9 @@
     <script type="text/javascript" src="/trackbar/jquery.trackbar.js"></script>
     <script type="text/javascript" src="/js/TextChange.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox.css" />
-    <script type="text/javascript" src="fancybox/jquery.fancybox.js"></script>
+    <link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.css" />
+    <script type="text/javascript" src="/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="/js/jTabs.js"></script>
     
 	<title>Интернет-магазин по продаже автомобилей</title>
         <style> 
@@ -48,6 +49,7 @@
  <script type="text/javascript">
  $(document).ready(function(){
     
+    $("ul.tabs").jTabs({content: ".tabs_content", animate: true, effect:"fade"});
     $(".image-modal").fancybox();
     
  });
@@ -96,7 +98,7 @@
         }
 echo '
 <div id="block-breadcrumbs-and-rating">
-    <p id="nav-breadcrumbs"><a href="view_cars.php">Легковые автомобили</a> \ <span>'.$row1["mark_auto"].'</span></p>
+    <p id="nav-breadcrumbs"><a href="view_cat.php?type=cars">Легковые автомобили</a> \ <span>'.$row1["mark_auto"].'</span></p>
 </div>
 <div id="block-content-info">
     <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'"/>
@@ -144,10 +146,26 @@ echo '
 ';
 }
  while ($row = mysql_fetch_array($result));
+ 
+ echo '</ul>
+    </div>';
 }
 
-echo '</ul>
-    </div>';
+$result = mysql_query("SELECT * FROM table_cars WHERE cars_id='$id' AND visible='1'",$link);
+$row = mysql_fetch_array($result);
+
+if ($row["description"] > "" AND $row["featurescar"] > ""){
+  echo '
+<ul class="tabs">
+    <li><a class="active" href="#">Описание автомобиля</a></li>
+    <li><a href="#">Характеристики</a></li>
+</ul>
+<div class="tabs_content">
+    <div>'.$row["description"].'</div>
+    <div>'.$row["featurescar"].'</div>
+</div>';  
+}else
+echo '';
 }    
 	?>    
     </div>

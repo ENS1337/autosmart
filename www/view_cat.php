@@ -9,6 +9,20 @@
     
     $sorting= $_GET["sort"];
     
+    switch ($type){   
+      case 'cars';
+      $typecar = 'Легковые автомобили';
+      break;
+        
+      case 'trucks';
+      $typecar = 'Грузовые автомобили';
+      break;
+      
+      case 'passenger';
+      $typecar = 'Пассажирские автомобили';
+      break;  
+    }
+    
     switch ($sorting){
         
     case 'price-asc';
@@ -124,7 +138,7 @@
         $row = mysql_fetch_array($result);
         
         echo '<div id="block-sorting">
-            <p id="nav-breadcrumbs"><a href="index.php">Главная страница</a> \ <span>Все автомобили</span></p>
+            <p id="nav-breadcrumbs"><a href="index.php">Главная страница</a> \ <span>'.$typecar.'</span></p>
                 <ul id="option-list">
                     <li>Вид: </li>
                     <li><img id="style-grid" src="images/icon-grid.png"/></li>
