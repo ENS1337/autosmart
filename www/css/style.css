@@ -400,13 +400,15 @@
     margin-top: 10px;   
 }
 #footer-left p{
+    width: auto;
+    float: left;
     font: bold 15px sans-serif;
     margin: 5px 0;
 }
 .footer-right{
-    width: 400px;
+    width: auto;
     float: right;
-    margin-top: -20px;
+    margin: 5px 0;
 }
 .footer-right li{
     display: inline;
@@ -1368,8 +1370,8 @@ font:15px sans-serif;
 }
 /*Вывод информации об авто по нажатию на него view_content.php*/
 #block-breadcrumbs-and-rating{
-    height: 50px;
-    margin-top: 10px;
+    height: 60px;
+    margin-bottom: 10px;
     border-bottom: 1px solid #EEEEEE;
 }
 #nav-breadcrumbs{
@@ -1484,7 +1486,7 @@ div.tabs_content > div {padding:10px;}
 /*Рейтинг автомобилей (view_content.php)*/
 #block-like{
     width: 150px;
-    margin-top: -10px;
+    margin-top: -5px;
 }
 #likegood{
     float: left;
@@ -1502,4 +1504,45 @@ div.tabs_content > div {padding:10px;}
     margin: 4px 8px;
     font: 13px sans-serif;
     display: inline-block;
+}
+/*Блок "Обратная связь"*/
+#block-feedback{
+    height: 450px;
+}
+#feedback{
+    margin-top: 50px;
+}
+#feedback li{
+    margin-top: 10px;
+}
+#feedback input{
+    height: 30px;
+    width: 300px;
+    font: 17px sans-serif;
+    margin-left: 200px; 
+    border-left: 1px solid #ABABAB;
+    border-top: 1px solid #ABABAB;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    padding-left: 5px;    
+}
+#feedback label{
+    font: 14px arial;
+    color: #464648;
+    position: absolute;
+    margin-top: 7px;
+}
+#feedback textarea{
+    height: 180px;
+    width: 450px;
+    font: 17px sans-serif;
+    margin-left: 200px;
+    border-left: 1px solid #ABABAB;
+    border-top: 1px solid #ABABAB;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+}
+#feedback input:focus,
+#feedback textarea:focus{
+    border: 1px solid #C4E1EB;
 }

@@ -5,10 +5,10 @@
     </div>
     <div class="footer-right">
         <ul>
-            <li><a href="index.php" >Главная</a></li>
-            <li><a href="" >О нас</a></li>
-            <li><a href="" >Контакты</a></li>
-            <li><a href="" >Вопросы и ответ</a></li>
+            <li><a href="index.php">Главная</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="feedback.php">Обратная связь</a></li>
+            <li><a href="#">Вопросы и ответ</a></li>
         </ul>
     </div>
 </div>

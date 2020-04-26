@@ -7,7 +7,7 @@
             <li>Ваш Город - <span>Новосибирск</span></li>
             <li><a href="o-nas.php">О нас</a></li>
             <li><a href="o-nas.php">Магазины</a></li>
-            <li><a href="o-nas.php">Контакты</a></li>
+            <li><a href="feedback.php">Обратная связь</a></li>
         </ul>
     <!-- Вход и регистрация. -->
     <?php
