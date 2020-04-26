@@ -1366,3 +1366,81 @@ font:15px sans-serif;
     font:bold 14px Verdana;
     margin-right: 10px;
 }
+/*Вывод информации об авто по нажатию на него view_content.php*/
+#block-breadcrumbs-and-rating{
+    height: 50px;
+    margin-top: 10px;
+    border-bottom: 1px solid #EEEEEE;
+}
+#nav-breadcrumbs{
+    margin-top: -5px;
+}
+#nav-breadcrumbs > a{
+    font: 13px sans-serif;
+    color: #4268B1;
+}
+#nav-breadcrumbs > a:hover{
+    color: #FFA1A1;
+}
+#nav-breadcrumbs > span{
+    font: 14px sans-serif;
+    color: #7F868E;
+}
+#block-content-info{
+    height: 420px;
+    margin-top: 15px;
+}
+#block-content-info img{
+    float: left;
+    margin-top: 0px;
+    margin-right: 10px;
+}
+#block-mini-description{
+    width: 590px;
+    float: left;
+}
+#content-title{
+    font: 19px sans-serif;
+    margin: 0;
+}
+#content-text{
+    font:15px sans-serif;
+    margin-top: 10px;
+}
+.reviews-and-counts-content{
+    height: 20px;
+    margin-top: 10px;
+}
+.reviews-and-counts-content > li{
+    float: left;
+    margin-left: 10px;    
+    margin-top: 3px;
+}
+.reviews-and-counts-content > li > p{
+    margin-left: 25px;
+    margin-top: -1px;
+    font: 13px sans-serif;
+    margin-bottom: 0px;
+}
+.reviews-and-counts-content img{
+    position: absolute;
+}
+#style-price{
+    font: 23px sans-serif;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#add-cart-view{
+    width: 88px;
+    height: 27px;
+    display: block;
+    cursor: pointer;
+    background: url(../images/button-buy-norm.png) no-repeat;
+}
+#add-cart-view:hover{
+    background: url(../images/button-buy-active.png) no-repeat;
+}
+#add-cart-view:active{
+    background: url(../images/button-buy-click.png) no-repeat;
+}
