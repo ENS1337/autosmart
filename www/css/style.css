@@ -1387,7 +1387,7 @@ font:15px sans-serif;
     color: #7F868E;
 }
 #block-content-info{
-    height: 420px;
+    height: auto;
     margin-top: 15px;
 }
 #block-content-info img{
@@ -1404,7 +1404,7 @@ font:15px sans-serif;
     margin: 0;
 }
 #content-text{
-    font:15px sans-serif;
+    font:13px sans-serif;
     margin-top: 10px;
 }
 .reviews-and-counts-content{
@@ -1443,4 +1443,27 @@ font:15px sans-serif;
 }
 #add-cart-view:active{
     background: url(../images/button-buy-click.png) no-repeat;
+}
+/*Просмотр миниатюр (jquery.fancybox.js)*/
+#title-add-image{
+    font: bold 16px sans-serif;
+}
+#block-img-slide{
+    height: 85px;
+    width: auto;
+}
+#block-img-slide li{
+    height: 55px;
+    padding: 5px;
+    float: left;
+    margin-left: 10px;
+    border: 1px solid #DBDBDB;
+    cursor: pointer;
+}
+#block-img-slide li:hover{
+    border: 1px solid black;
+}
+#block-img-slide a{
+    height: 85px;
+    display: block;
 }
