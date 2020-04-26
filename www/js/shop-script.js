@@ -385,7 +385,6 @@ function loadcart(){
        
 }
 
-
  function fun_group_price(intprice) {  
     // Группировка цифр по разрядам
   var result_total = String(intprice);
@@ -413,6 +412,31 @@ function loadcart(){
       }
 }  
     return groupprice;
-}  
+}
+/*Проверка нажатия кнопки "Нравится"*/
+$('#likegood').click(function(){
+          
+ var tid = $(this).attr("tid");
+ 
+ $.ajax({
+  type: "POST",
+  url: "/include/like.php",
+  data: "id="+tid,
+  dataType: "html",
+  cache: false,
+  success: function(data) {  
+  
+  if (data == 'no')
+  {
+    alert('Вы уже голосовали!');
+  }  
+   else
+   {
+    $("#likegoodcount").html(data);
+   }
+
+}
+});
+});  
  
 }); 

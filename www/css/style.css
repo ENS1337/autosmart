@@ -513,7 +513,7 @@
 .reviews-and-counts-grid{
     height: 20px;
     margin-top: 5px;
-    margin-left: 40px;
+    margin-left: 70px;
 }
 .reviews-and-counts-grid > li{
     float: left;
@@ -576,7 +576,7 @@
 }
 .reviews-and-counts-list{
     position: absolute;
-    margin-left: 670px;
+    margin-left: 740px;
 }
 .reviews-and-counts-list > li{
     float: left;
@@ -1413,7 +1413,7 @@ font:15px sans-serif;
 }
 .reviews-and-counts-content > li{
     float: left;
-    margin-left: 10px;    
+    margin-left: 5px;    
     margin-top: 3px;
 }
 .reviews-and-counts-content > li > p{
@@ -1480,4 +1480,26 @@ div.tabs_content > div {padding:10px;}
 .tabs_content div{
     font: 15px sans-serif;
     margin-top: 5px;
+}
+/*Рейтинг автомобилей (view_content.php)*/
+#block-like{
+    width: 150px;
+    margin-top: -10px;
+}
+#likegood{
+    float: left;
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: #EEEEEE;
+    padding: 3px 4px;
+    font: 13px sans-serif;
+    margin: 0;
+}
+#likegood:hover{
+    background-color: #F2F2F2;
+}
+#likegoodcount{
+    margin: 4px 8px;
+    font: 13px sans-serif;
+    display: inline-block;
 }

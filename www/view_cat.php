@@ -179,7 +179,6 @@
                         <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />
                         <ul class="reviews-and-counts-grid">
                         <li><img src="/images/eye-icon.png"/><p>'.$row["count_views"].'</p></li>
-                        <li><img src="/images/comment-icon.png"/><p>0</p></li>
                     </ul>  
                     </div>
                     <p class="style-title-grid"><a href="view_content.php?id='.$row["cars_id"].'">'.$row["title"].'</a></p>
@@ -224,7 +223,6 @@
                     </div>
                     <ul class="reviews-and-counts-list">
                         <li><img src="/images/eye-icon.png"/><p>'.$row["count_views"].'</p></li>
-                        <li><img src="/images/comment-icon.png"/><p>0</p></li>
                     </ul>
                     <p class="style-title-list"><a href="view_content.php?id='.$row["cars_id"].'">'.$row["title"].'</a></p>
                     <a class="add-cart-style-list"></a>

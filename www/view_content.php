@@ -99,6 +99,9 @@
 echo '
 <div id="block-breadcrumbs-and-rating">
     <p id="nav-breadcrumbs"><a href="view_cat.php?type=cars">Легковые автомобили</a> \ <span>'.$row1["mark_auto"].'</span></p>
+    <div id="block-like">
+        <p id="likegood" tid="'.$id.'">Нравится</p><p id="likegoodcount">'.$row1["like"].'</p> 
+    </div>
 </div>
 <div id="block-content-info">
     <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'"/>
@@ -106,7 +109,6 @@ echo '
             <p id="content-title">'.$row1["title"].'</p>
             <ul class="reviews-and-counts-content">
                 <li><img src="/images/eye-icon.png"/><p>'.$row1["count_views"].'</p></li>
-                <li><img src="/images/comment-icon.png"/><p>0</p></li>
             </ul>
             <p id="style-price">'.group_numerals($row1["price"]).' руб</p>
             <a class="add-cart" id="add-cart-view" tid="'.$row1["cars_id"].'"></a>
