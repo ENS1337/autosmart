@@ -174,7 +174,7 @@
                     </ul>  
                     </div>
                     <p class="style-title-grid"><a href="view_content.php?id='.$row["cars_id"].'">'.$row["title"].'</a></p>
-                    <a class="add-cart-style-grid"></a>
+                    <a class="add-cart-style-grid" tid="'.$row["cars_id"].'"></a>
                     <p class="style-price-grid"><strong>'.group_numerals($row["price"]).'</strong> руб</p>
                     <div class="mini-featurescar">
                         '.$row["mini_featurescar"].'
@@ -218,7 +218,7 @@
                         <li><img src="/images/eye-icon.png"/><p>'.$row["count_views"].'</p></li>
                     </ul>
                     <p class="style-title-list"><a href="view_content.php?id='.$row["cars_id"].'">'.$row["title"].'</a></p>
-                    <a class="add-cart-style-list"></a>
+                    <a class="add-cart-style-list" tid="'.$row["cars_id"].'"></a>
                     <p class="style-price-list"><strong>'.group_numerals($row["price"]).'</strong> руб</p>
                     <div class="mini-description-list">
                         '.$row["mini_description"].'

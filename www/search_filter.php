@@ -71,7 +71,6 @@
                     <li><img id="style-grid" src="images/icon-grid.png"/></li>
                     <li><img id="style-list" src="images/icon-list.png"/></li>
                     
-                    <li>Сортировать: </li>
                     <li><a id="select-sort">'.$sort_name.'</a>
                         <ul id="sorting-list">
                             <li><a href="view_cat.php?'.$catlink.'type='.$type.'&sort=price-asc">От дешевых к дорогим</a></a></li>
@@ -109,7 +108,7 @@
                     </ul>  
                     </div>
                     <p class="style-title-grid"><a href="view_content.php?id='.$row["cars_id"].'">'.$row["title"].'</a></p>
-                    <a class="add-cart-style-grid"></a>
+                    <a class="add-cart-style-grid" tid="'.$row["cars_id"].'"></a>
                     <p class="style-price-grid"><strong>'.group_numerals($row["price"]).'</strong> руб</p>
                     <div class="mini-featurescar">
                         '.$row["mini_featurescar"].'
@@ -154,7 +153,7 @@
                     </ul>
                     
                     <p class="style-title-list"><a href="view_content.php?id='.$row["cars_id"].'">'.$row["title"].'</a></p>
-                    <a class="add-cart-style-list"></a>
+                    <a class="add-cart-style-list" tid="'.$row["cars_id"].'"></a>
                     
                     <p class="style-price-list"><strong>'.group_numerals($row["price"]).'</strong> руб</p>
                     <div class="mini-description-list">
