@@ -1,3 +1,6 @@
+<?php
+    defined('autosmart') or die("Доступ запрещён!");
+?>
 <script type="text/javascript">
 $(document).ready(function(){
    $('#blocktrackbar').trackbar({

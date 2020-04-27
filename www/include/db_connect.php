@@ -1,4 +1,5 @@
 <?php
+        defined('autosmart') or die("Доступ запрещён!");
         $db_host		= 'localhost';
         $db_user		= 'admin';
         $db_pass		= '123456';

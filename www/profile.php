@@ -1,4 +1,5 @@
 <?php
+define('autosmart', true);
 session_start();
 if($_SESSION['auth'] == 'yes_auth')
 {

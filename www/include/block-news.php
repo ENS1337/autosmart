@@ -1,3 +1,6 @@
+<?php
+    defined('autosmart') or die("Доступ запрещён!");
+?>
 <div id="block-news">
     <center><img id="news-prev" src="images/img-prev.png"/></center>
     <div id="newsticker">

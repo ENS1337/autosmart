@@ -3,6 +3,7 @@
 { 
  session_start();
  
+ define('autosmart', true);
  include("../include/db_connect.php");
  include("../functions/functions.php");
      $error = array();

@@ -1,4 +1,5 @@
 <?php
+    define('autosmart', true);
 	include("include/db_connect.php");
     include("functions/functions.php");
     session_start();
@@ -10,9 +11,11 @@
     If (mysql_num_rows($seoquery) > 0)
     {
         $resquery = mysql_fetch_array($seoquery);
-    }   
+    }
+
     If ($id != $_SESSION['countid'])
     {
+        
         $querycount = mysql_query("SELECT count_views FROM table_cars WHERE cars_id='$id'",$link);
         $resultcount = mysql_fetch_array($querycount); 
         
@@ -20,7 +23,7 @@
         
         $update = mysql_query ("UPDATE table_cars SET count_views='$newcount' WHERE cars_id='$id'",$link);  
     }
-    $_SESSION['countid'] = $id; 
+    $_SESSION['countid'] = $id;
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -100,7 +103,7 @@ echo '
 <div id="block-breadcrumbs-and-rating">
     <p id="nav-breadcrumbs"><a href="view_cat.php?type=cars">Легковые автомобили</a> \ <span>'.$row1["mark_auto"].'</span></p>
     <div id="block-like">
-        <p id="likegood" tid="'.$id.'">Нравится</p><p id="likegoodcount">'.$row1["like"].'</p> 
+        <p id="likegood" tid="'.$id.'">Нравится</p><p id="likegoodcount">'.$row1["like_cars"].'</p> 
     </div>
 </div>
 <div id="block-content-info">

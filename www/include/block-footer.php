@@ -1,3 +1,6 @@
+<?php
+    defined('autosmart') or die("Доступ запрещён!");
+?>
 <div id="block-footer">
     <div id="bottom-line"></div>
     <div id="footer-left">

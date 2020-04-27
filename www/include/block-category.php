@@ -1,3 +1,6 @@
+<?php
+    defined('autosmart') or die("Доступ запрещён!");
+?>
 <div id="block-category">
 <p class="header-title">Категории автомобилей</p>
     <ul>
