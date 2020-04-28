@@ -213,3 +213,122 @@ a.pstr-prev:hover, a.pstr-next:hover{
 #list-links > ul > li > a:hover{
    text-decoration: underline; 
 }
+/*Стиль для кнопки добавить авто*/
+#add-style{
+   margin-top: 12px;
+   margin-left: 598px;
+   position: absolute;
+}
+#add-style > a{
+  font: 13px arial;
+  color: black;
+  text-decoration: none;
+  border: 1px solid #FFDACA;
+  background-color: #FFE7E7;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+#add-style > a:hover{ 
+  border: 1px solid #FFBFA4;
+}
+/*Страница добавить автомобиль*/
+#edit-сar label{
+  position: absolute;
+  font: 15px sans-serif; 
+  margin-top: 6px; 
+  margin-left: 10px; 
+}
+#edit-сar{
+  margin-top: 20px;   
+}
+#edit-сar li{
+  margin-top: 10px;   
+}
+#edit-сar input{
+  margin-left: 170px;
+  width: 400px;
+  height: 25px;   
+  border: 1px solid #D4D4D4;
+  padding-left: 5px;
+  font: 15px sans-serif;
+}
+#edit-сar textarea{
+  margin-left: 170px;
+  width: 401px;
+  height: 80px;
+  border: 1px solid #D4D4D4; 
+  font: 15px sans-serif;  
+}
+#edit-сar select#type{
+  margin-left: 170px;
+  width: 250px;
+  height: 25px;
+  border: 1px solid #D4D4D4;   
+}
+#edit-сar select{
+  margin-left: 170px;
+  width: 250px;
+  border: 1px solid #D4D4D4;   
+}
+
+#baseimg-upload{
+  margin-top: 40px;     
+}
+#baseimg-upload input{
+  margin-left: 15px;    
+}
+.h3click{
+    font:bold 15px sans-serif;
+    cursor: pointer;
+    padding-left: 25px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: #EAEAEA;
+    border: 1px solid #E3E3E3;
+}
+.h3click:hover{
+    background-color: #DDDDDD;
+}
+.stylelabel{
+  position: absolute;
+  font: 15px sans-serif; 
+  margin-top: 6px; 
+  margin-left: 20px;    
+}
+#objects{
+    margin-top: 50px;
+}
+.addimage{
+    margin-left: 50px;
+    margin-top: 5px;
+}
+.div-editor1,.div-editor2,.div-editor3,.div-editor4{
+    display: none;
+}
+#submit_form{
+    border: 1px solid #A8BBD4;
+    background-color: #BBD0EC;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-right: 15px;
+    font:bold 12px sans-serif;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+#submit_form:hover{
+    border: 1px solid #779FD3;
+}
+#chkbox > li{
+    margin-top: 5px;
+    margin-left: 10px;
+    font: 15px sans-serif;
+}
+.h3title{
+    font: bold 17px sans-serif;
+    margin-left: 10px;
+}

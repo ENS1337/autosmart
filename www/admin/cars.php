@@ -157,6 +157,7 @@ if (isset($cat))
         </div>
         <div id="block-info">
         <p id="count-style">Всего автомобилей - <strong><?php echo $all_count_result; ?></strong></p>
+        <p align="right" id="add-style"><a href="add_car.php">Добавить автомобиль</a></p>
         </div>
         <ul id="block-cars">
 <?php
