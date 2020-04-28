@@ -95,8 +95,8 @@
             $height = intval($ratio*$height);    
         }else
         {
-            $img_path = "/images/no-image.png";
-            $width = 110;
+            $img_path = "/images/noimages80x70.png";
+            $width = 200;
             $height = 200;
         }
 echo '

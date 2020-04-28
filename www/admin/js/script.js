@@ -45,5 +45,24 @@ $(document).ready(function() {
     $("#addimage"+rel).remove();      
 	});
     });
+    /*Удаление картинок из галлереи*/
+    $('.del-img').click(function(){
+    var img_id = $(this).attr("img_id");
+    var title_img = $("#del"+img_id+" > img").attr("title");
+    
+    $.ajax({
+    type: "POST",
+    url: "./actions/delete-gallery.php",
+    data: "id="+img_id+"&title="+title_img,
+    dataType: "html",
+    cache: false,
+    success: function(data) { 
+      if (data == "delete")
+      {
+         $("#del"+img_id).fadeOut(300);
+      }
+    }
+    });
+    });
      
 });
