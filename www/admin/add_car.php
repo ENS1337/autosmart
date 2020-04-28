@@ -11,6 +11,96 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     
     include("include/db_connect.php");
     include("include/functions.php");
+    
+    if ($_POST["submit_add"])
+    {
+        $error = array();
+            
+           if (!$_POST["form_title"])
+          {
+             $error[] = "Укажите название товара";
+          }
+          
+           if (!$_POST["form_price"])
+          {
+             $error[] = "Укажите цену";
+          }
+              
+           if (!$_POST["form_category"])
+          {
+             $error[] = "Укажите категорию";         
+          }else
+          {
+           	$result = mysql_query("SELECT * FROM category_cars WHERE id='{$_POST["form_category"]}'",$link);
+            $row = mysql_fetch_array($result);
+            $selectmarkauto = $row["mark_auto"];
+          }
+          
+     // Проверка чекбоксов
+          
+           if ($_POST["chk_visible"])
+           {
+              $chk_visible = "1";
+           }else { $chk_visible = "0"; }
+          
+           if ($_POST["chk_new"])
+           {
+              $chk_new = "1";
+           }else { $chk_new = "0"; }
+          
+           if ($_POST["chk_leader"])
+           {
+              $chk_leader= "1";
+           }else { $chk_leader = "0"; }
+          
+           if ($_POST["chk_sale"])
+           {
+              $chk_sale = "1";
+           }else { $chk_sale = "0"; }                   
+          
+                                          
+           if (count($error))
+           {           
+                $_SESSION['message'] = "<p id='form-error'>".implode('<br />',$error)."</p>";
+                
+           }else
+           {
+                           
+              		mysql_query("INSERT INTO table_cars(title,price,mark_auto,seo_words,seo_description,mini_description,description,mini_featurescar,featurescar,new,leader,sale,visible,type_car,mark_auto_id)
+						VALUES(						
+                            '".$_POST["form_title"]."',
+                            '".$_POST["form_price"]."',
+                            '".$selectmarkauto."',
+                            '".$_POST["form_seo_words"]."',
+                            '".$_POST["form_seo_description"]."',
+                            '".$_POST["txt1"]."',
+                            '".$_POST["txt2"]."',
+                            '".$_POST["txt3"]."',
+                            '".$_POST["txt4"]."',
+                            '".$chk_new."',
+                            '".$chk_leader."',
+                            '".$chk_sale."',
+                            '".$chk_visible."',
+                            '".$_POST["form_type"]."',
+                            '".$_POST["form_category"]."'                               
+						)",$link);
+                   
+          $_SESSION['message'] = "<p id='form-success'>Автомобиль успешно добавлен!</p>";
+          $id = mysql_insert_id();
+                     
+           if (empty($_POST["upload_image"]))
+          {        
+          include("actions/upload-image.php");
+          unset($_POST["upload_image"]);           
+          } 
+          
+           if (empty($_POST["galleryimg"]))
+          {        
+          include("actions/upload-gallery.php"); 
+          unset($_POST["galleryimg"]);                 
+          }
+        }        
+    }   
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -20,8 +110,8 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="jquery_confirm/jquery_confirm.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     
 	<meta name="author" content="sokol0198" />
 
@@ -39,8 +129,19 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
 ?>
 <div id="block-content">
     <div id="block-parameters">
-        <p id="count-style">Всего автомобилей - <strong><?php echo $all_count_result; ?></strong></p>
+        <p id="count-style">Добавление автомобиля</p>
     </div>
+    
+<?php
+	if(isset($_SESSION['message'])){
+	   echo $_SESSION['message'];
+       unset($_SESSION['message']);
+	}
+    if(isset($_SESSION['answer'])){
+	   echo $_SESSION['answer'];
+       unset($_SESSION['answer']);
+	}
+?>
 <form enctype="multipart/form-data" method="post">
 <ul id="edit-сar">
 
@@ -76,24 +177,24 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
 
 <li>
 <label>Категория</label>
-<select name="form_category_cars" size="10" >
+<select name="form_category" size="10" >
 <?php
-$category_cars = mysql_query("SELECT * FROM category_cars",$link);
+$category = mysql_query("SELECT * FROM category_cars",$link);
     
-If (mysql_num_rows($category_cars) > 0)
+If (mysql_num_rows($category) > 0)
 {
-$result_category_cars = mysql_fetch_array($category_cars);
+$result_category = mysql_fetch_array($category);
 do
 {
   
   echo '
   
-  <option value="'.$result_category_cars["id"].'" >'.$result_category_cars["mark_auto"].'</option>
+  <option value="'.$result_category["id"].'" >'.$result_category["mark_auto"].'</option>
   
   ';
     
 }
- while ($result_category_cars = mysql_fetch_array($category_cars));
+ while ($result_category = mysql_fetch_array($category));
 }
 ?> 
 

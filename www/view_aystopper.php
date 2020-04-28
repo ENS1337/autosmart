@@ -11,7 +11,7 @@
 
 	 case "news":     
      $query_aystopper= " WHERE visible = '1' AND new = '1'";
-     $name_aystopper = "Новинки товаров";
+     $name_aystopper = "Новые автомобили";
      break;
      
      case "leaders":

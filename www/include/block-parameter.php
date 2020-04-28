@@ -75,5 +75,5 @@ $(document).ready(function(){
             <center><input type="submit" name="submit" id="button-param-search" value=""/></center>
         </form>
         <div id="bottom-line-news"></div>
-        <div id="block-news-title"><center><strong><a href=""><p>Новинки</p></a></strong></center></div>
+        <div id="block-news-title"><center><strong><a href="view_aystopper.php?go=news"><p>Новинки</p></a></strong></center></div>
 </div>

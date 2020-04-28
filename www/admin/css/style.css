@@ -295,7 +295,7 @@ a.pstr-prev:hover, a.pstr-next:hover{
   position: absolute;
   font: 15px sans-serif; 
   margin-top: 6px; 
-  margin-left: 20px;    
+  margin-left: 10px;    
 }
 #objects{
     margin-top: 50px;
@@ -331,4 +331,42 @@ a.pstr-prev:hover, a.pstr-next:hover{
 .h3title{
     font: bold 17px sans-serif;
     margin-left: 10px;
+}
+#add-input{
+    margin-left: 15px;
+    font:bold 13px sans-serif;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #34659D;
+    display: inline-block;
+}
+.addimage a{
+    font:bold 13px sans-serif;
+    color: #D90094; 
+    text-decoration: none;  
+    cursor: pointer;
+}
+.addimage a:hover{
+    text-decoration: underline;  
+}
+#form-error{
+    font:bold 14px sans-serif;
+    color: red;
+    background-color: #F7EDEF;
+    border: 1px solid #FAC8D3;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#form-success{
+    font:bold 14px sans-serif;
+    color: black;
+    background-color: #E6EED9;
+    border: 1px solid #D1E7BC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-top: 0;
 }

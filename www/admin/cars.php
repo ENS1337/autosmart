@@ -220,7 +220,7 @@ if (isset($cat))
      <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />
     </center>
     <p align="center" class="link-action" >
-    <a class="green" href="edit_cars.php?id='.$row["cars_id"].'">Изменить</a> | <a rel="cars.php?'.$url.'id='.$row["cars_id"].'&action=delete" class="delete" >Удалить</a>
+    <a class="green" href="edit_car.php?id='.$row["cars_id"].'">Изменить</a> | <a rel="cars.php?'.$url.'id='.$row["cars_id"].'&action=delete" class="delete" >Удалить</a>
     </p>
      </li> 
      ';   
