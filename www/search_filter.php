@@ -97,8 +97,8 @@
             }
                     else{
                     $img_path = "/images/noimages80x70.png";
-                    $width = 80;
-                    $height = 70;
+                    $width = 200;
+                    $height = 150;
                     } 
         echo'<li>
             <div class="block-images-grid">
@@ -140,8 +140,8 @@
             }
                     else{
                     $img_path = "/images/noimages80x70.png";
-                    $width = 80;
-                    $height = 70;
+                    $width = 200;
+                    $height = 150;
                     } 
             echo'<li>
                     <div class="block-images-list">

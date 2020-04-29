@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 29 2020 г., 02:42
+-- Время создания: Апр 29 2020 г., 16:41
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `category_cars` (
   `type_car` varchar(20) NOT NULL,
   `mark_auto` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
 
 --
 -- Дамп данных таблицы `category_cars`
@@ -67,7 +67,6 @@ INSERT INTO `category_cars` (`id`, `type_car`, `mark_auto`) VALUES
 (11, 'trucks', 'Daf'),
 (12, 'trucks', 'Gaz'),
 (13, 'trucks', 'Howo'),
-(14, 'trucks', 'Iveco'),
 (15, 'trucks', 'Kamaz'),
 (16, 'trucks', 'Man'),
 (17, 'trucks', 'Mercedes-Benz'),
@@ -80,7 +79,9 @@ INSERT INTO `category_cars` (`id`, `type_car`, `mark_auto`) VALUES
 (24, 'passenger', 'Gazel'),
 (25, 'passenger', 'Man'),
 (26, 'passenger', 'Peugeot'),
-(27, 'passenger', 'Volkswagen');
+(27, 'passenger', 'Volkswagen'),
+(28, 'trucks', 'Iveco'),
+(29, 'trucks', 'Iveco');
 
 -- --------------------------------------------------------
 

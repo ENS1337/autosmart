@@ -125,8 +125,8 @@ If (mysql_num_rows($result) > 0)
                         }
                         else{
                             $img_path = "/images/noimages80x70.png";
-                            $width = 80;
-                            $height = 70;
+                            $width = 200;
+                            $height = 150;
                         }
                         echo '<div class="block-list-cart">
                     <div class="img-cart">

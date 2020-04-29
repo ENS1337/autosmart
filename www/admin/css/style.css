@@ -405,3 +405,41 @@ a.pstr-prev:hover, a.pstr-next:hover{
     cursor: pointer;
     margin-left: 5px;
 }
+/*Блок категорий*/
+#cat_cars{
+    margin-top: 20px;
+}
+#cat_cars li{
+    margin-top: 15px;
+}
+#cat_cars label{
+    position: absolute;
+    margin-left: 15px; 
+    font: 14px arial;
+    margin-top: 3px;
+}
+#cat_cars select{
+    margin-left: 150px;
+    width: 400px;
+    height: 350px; 
+}
+#cat_cars input{
+    margin-left: 150px;
+    width: 300px;
+    height: 25px; 
+}
+#cat_cars div{
+   position: absolute;
+   margin-left: 560px;
+   display: inline-block;
+}
+#cat_cars a{
+   font: 14px sans-serif;
+   display: block;
+   margin-top: 4px;
+   cursor: pointer;
+   text-decoration: underline;
+}
+#cat_cars a:hover{
+   text-decoration: none;
+}
