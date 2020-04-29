@@ -21,6 +21,21 @@ switch ($action) {
 }
 if (isset($_POST["submitdata"]))
 {
+    if ( $_SESSION['auth'] == 'yes_auth' ) 
+ {  
+    mysql_query("INSERT INTO orders(order_datetime,order_delivery,order_fio,order_address,order_phone,order_note,order_email)
+						VALUES(	
+                             NOW(),
+                            '".$_POST["order_delivery"]."',					
+							'".$_SESSION['auth_surname'].' '.$_SESSION['auth_name'].' '.$_SESSION['auth_patronymic']."',
+                            '".$_SESSION['auth_address']."',
+                            '".$_SESSION['auth_phone']."',
+                            '".$_POST['order_note']."',
+                            '".$_SESSION['auth_email']."'                              
+						    )",$link);         
+
+ }else
+ {
     $_SESSION["order_delivery"] = $_POST["order_delivery"];
     $_SESSION["order_fio"] = $_POST["order_fio"];
     $_SESSION["order_email"] = $_POST["order_email"];
@@ -28,7 +43,38 @@ if (isset($_POST["submitdata"]))
     $_SESSION["order_address"] = $_POST["order_address"];
     $_SESSION["order_note"] = $_POST["order_note"];
 
-    header("Location: cart.php?action=completion");
+    mysql_query("INSERT INTO orders(order_datetime,order_delivery,order_fio,order_address,order_phone,order_note,order_email)
+						VALUES(	
+                             NOW(),
+                            '".clear_string($_POST["order_delivery"])."',					
+							'".clear_string($_POST["order_fio"])."',
+                            '".clear_string($_POST["order_address"])."',
+                            '".clear_string($_POST["order_phone"])."',
+                            '".clear_string($_POST["order_note"])."',
+                            '".clear_string($_POST["order_email"])."'                   
+						    )",$link);    
+ }
+                     
+    $_SESSION["order_id"] = mysql_insert_id();                          
+                            
+    $result = mysql_query("SELECT * FROM cart WHERE cart_ip = '{$_SERVER['REMOTE_ADDR']}'",$link);
+    If (mysql_num_rows($result) > 0)
+    {
+    $row = mysql_fetch_array($result);    
+
+    do{
+    mysql_query("INSERT INTO buy_cars(buy_id_order,buy_id_car)
+						VALUES(	
+                            '".$_SESSION["order_id"]."',					
+							'".$row["cart_id_cars"]."'                   
+						    )",$link);
+
+
+
+    } while ($row = mysql_fetch_array($result));
+}
+                            
+header("Location: cart.php?action=completion");
 }
 $result = mysql_query("SELECT * FROM cart, table_cars WHERE cart.cart_ip = '{$_SERVER['REMOTE_ADDR']}' AND table_cars.cars_id = cart.cart_id_cars", $link);
 If (mysql_num_rows($result) > 0)

@@ -81,7 +81,7 @@ if (isset($cat))
     
 	<meta name="author" content="sokol0198" />
 
-	<title>Панель Управления</title>
+	<title>Панель Управления - Автомобили</title>
     <style> 
             li{list-style-type: none}
             ul{list-style-type: none}

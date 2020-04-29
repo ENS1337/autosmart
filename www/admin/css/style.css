@@ -559,3 +559,108 @@ a.pstr-prev:hover, a.pstr-next:hover{
     margin-left: 25px;
     margin-bottom: 0;
 }
+/*Заказы*/
+#orders-info-count li{
+    float: left;
+    margin-left: 10px;
+    font: 14px sans-serif;
+    margin-top: 12px;
+}
+.block-order{
+    border-bottom: 1px solid #E0E0E0;
+    min-height: 40px;
+    height: auto;
+}
+.order-datetime{
+    font: 14px sans-serif;
+    margin-left: 10px;
+    color: #767676;
+    margin-top: 10px;
+    margin-bottom: 0px;   
+}
+.order-number{
+     font: 14px sans-serif;
+    margin-left: 10px;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 10px;     
+}
+.order-link{
+    font: 14px sans-serif;  
+    position: absolute; 
+    margin-left: 580px; 
+    margin-top: -36px;
+}
+.order-link > a.green{
+    font:bold 13px sans-serif;
+    color: green;   
+}
+.order-link > a:hover{
+    text-decoration: none;   
+}
+.green{
+    font:bold 13px sans-serif;
+    color: green;
+}
+.red{
+    font:bold 13px sans-serif;
+    color: #D6533C;
+}
+.view-order-link{
+    margin-left: 10px;
+}
+/*Просмотр заказа*/
+#list-links-sort{
+    background-color: white; 
+    border: 1px solid #A3C0D2;
+    position: absolute;
+    display: none;
+    width: 200px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    height: auto;
+    z-index: 1;
+}
+
+#list-links-sort  li{
+   margin-top: 3px;
+   margin-left: 10px;
+}
+#list-links-sort  a{
+   font: 15px sans-serif;
+   text-decoration: none; 
+   color: black;
+}
+#list-links-sort a:hover{
+   text-decoration: underline; 
+}
+table{
+   margin-top: 20px;
+}
+th{
+    font:bold 14px sans-serif;
+}
+td{
+    border: 1px solid #E0E0E0;
+    font:15px sans-serif;
+}
+#info-order{
+    margin-top: 15px;
+}
+#info-order li{
+    font: 16px sans-serif; 
+    margin-left: 10px;
+    margin-top: 6px;
+}
+#info-order span{
+    color: #5D6E78;
+    font:bold 15px sans-serif;
+}
+#info-order span.green{
+    color: #6BA100;
+    font:bold 15px sans-serif;
+}
+#info-order span.red{
+    color: #E05F5F;
+    font:bold 15px sans-serif;
+}

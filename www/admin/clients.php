@@ -7,7 +7,7 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
         unset($_SESSION['auth_admin']);
         header("Location: login.php");
     }
-    $_SESSION['urlpage'] = "<a href='index.php'>Главная</a>";
+    $_SESSION['urlpage'] = "<a href='index.php'>Главная</a> \ <a href='clients.php'>Клиенты</a>";
     
     include("include/db_connect.php");
     include("include/functions.php");

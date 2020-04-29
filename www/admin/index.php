@@ -35,8 +35,6 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     <div id="block-content">
         <div id="block-parameters">
         <p id="title-page">Общая статистика</p>
-    
-    
         </div>
     </div>
 </div>

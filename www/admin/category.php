@@ -107,7 +107,7 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
                     <input type="text" name="cat_mark"/>
                 </li>
             </ul>
-            <p align="right"><input type="submit" name="submit_cat" id="submit_form"/></p>
+            <p align="right"><input type="submit" name="submit_cat" id="submit_form" value="Добавить"/></p>
         </form>
     </div>
 </div>

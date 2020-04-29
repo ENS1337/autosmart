@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 30 2020 г., 00:51
+-- Время создания: Апр 30 2020 г., 02:35
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -23,6 +23,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `buy_cars`
+--
+
+CREATE TABLE IF NOT EXISTS `buy_cars` (
+  `buy_id` int(11) NOT NULL AUTO_INCREMENT,
+  `buy_id_order` int(11) NOT NULL,
+  `buy_id_car` int(11) NOT NULL,
+  PRIMARY KEY (`buy_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+--
+-- Дамп данных таблицы `buy_cars`
+--
+
+INSERT INTO `buy_cars` (`buy_id`, `buy_id_order`, `buy_id_car`) VALUES
+(2, 5, 12),
+(3, 6, 12),
+(4, 6, 11),
+(5, 6, 10),
+(6, 7, 12),
+(7, 7, 11),
+(8, 7, 10),
+(9, 8, 12),
+(10, 8, 11),
+(11, 8, 10),
+(12, 8, 9),
+(13, 8, 8);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `cart`
 --
 
@@ -34,7 +65,18 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `cart_datetime` datetime NOT NULL,
   `cart_ip` varchar(100) NOT NULL,
   PRIMARY KEY (`cart_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Дамп данных таблицы `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `cart_id_cars`, `cart_price`, `cart_count`, `cart_datetime`, `cart_ip`) VALUES
+(7, 12, 415000, 1, '2020-04-30 01:31:01', '127.0.0.1'),
+(8, 11, 125000, 1, '2020-04-30 01:31:02', '127.0.0.1'),
+(9, 10, 520000, 1, '2020-04-30 01:31:03', '127.0.0.1'),
+(10, 9, 850000, 1, '2020-04-30 01:31:04', '127.0.0.1'),
+(11, 8, 14530000, 1, '2020-04-30 01:31:05', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -82,6 +124,27 @@ INSERT INTO `category_cars` (`id`, `type_car`, `mark_auto`) VALUES
 (27, 'passenger', 'Volkswagen'),
 (28, 'trucks', 'Iveco'),
 (29, 'trucks', 'Iveco');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_datetime` datetime NOT NULL,
+  `order_confirmed` varchar(10) NOT NULL,
+  `order_delivery` varchar(255) NOT NULL,
+  `order_pay` varchar(50) NOT NULL,
+  `order_type_pay` varchar(100) NOT NULL,
+  `order_fio` text NOT NULL,
+  `order_address` text NOT NULL,
+  `order_phone` varchar(50) NOT NULL,
+  `order_note` text NOT NULL,
+  `order_email` varchar(50) NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
