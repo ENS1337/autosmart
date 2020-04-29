@@ -91,5 +91,9 @@ $(document).ready(function() {
         });       
     }
   });
+  /*Блок Клиенты*/
+  $('.block-clients').click(function(){
+    $(this).find('ul').slideToggle(300);
+  });
      
 });
