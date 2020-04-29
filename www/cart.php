@@ -133,7 +133,7 @@ If (mysql_num_rows($result) > 0)
                         <center><p><img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" /></p></center>
                     </div>
                     <div class="title-cart">
-                        <p><a href="">'.$row["title"].'</a></p>
+                        <p><a href="view_content.php?id='.$row["cars_id"].'">'.$row["title"].'</a></p>
                         <p class="cart-mini_featurescar">'.$row["mini_featurescar"].'</p>
                     </div>
                     <div class="price-cars">

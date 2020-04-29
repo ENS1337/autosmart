@@ -21,6 +21,5 @@
         <li><a href="cars.php">Автомобили</a></li>
         <li><a href="category.php">Категории</a></li>
         <li><a href="clients.php">Клиенты</a></li>
-        <li><a href="news.php">Новости</a></li>
     </ul>
 </div>
