@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 29 2020 г., 19:36
+-- Время создания: Апр 30 2020 г., 00:51
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `cart_datetime` datetime NOT NULL,
   `cart_ip` varchar(100) NOT NULL,
   PRIMARY KEY (`cart_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -116,8 +116,7 @@ CREATE TABLE IF NOT EXISTS `reg_admin` (
 --
 
 INSERT INTO `reg_admin` (`id`, `login`, `pass`, `fio`, `role`, `email`, `phone`, `view_orders`, `accept_orders`, `delete_orders`, `add_car`, `edit_car`, `delete_car`, `view_clients`, `delete_clients`, `add_category`, `delete_category`, `view_admin`) VALUES
-(1, 'admin', '123', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 'admin123', 'mb03foo5107b432d25170b469b57095ca269bc202qj2jjdp9', 'Иванов Пётр Генадьевич', 'Модератор', 'petr@mail.ru', '123123123', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+(2, 'admin', 'mb03foo5107b432d25170b469b57095ca269bc202qj2jjdp9', 'Иванов Пётр Генадьевич', 'Администратор', 'petr@mail.ru', '123123123', 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -138,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
   `datetime` datetime NOT NULL,
   `ip` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `reg_user`

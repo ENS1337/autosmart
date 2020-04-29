@@ -7,7 +7,7 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
         unset($_SESSION['auth_admin']);
         header("Location: login.php");
     }
-    $_SESSION['urlpage'] = "<a href='index.php'>Главная</a>";
+    $_SESSION['urlpage'] = "<a href='index.php'>Главная</a> \ <a href='add_administrators.php'>Добавление администратора</a>";
     
     include("include/db_connect.php");
     include("include/functions.php");
@@ -101,8 +101,6 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
 <div id="block-body">
 <?php
 	include("include/block-header.php");
-    $all_client = mysql_query("SELECT * FROM reg_user",$link);
-    $result_count = mysql_num_rows($all_client);
 ?>
     <div id="block-content">
         <div id="block-parameters">
@@ -217,9 +215,9 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     </ul>
     
     </div>
-    </div>
     <p align="right"><input type="submit" id="submit_form" name="submit_add" value="Добавить"/></p>
 </form>
+</div>
 </div>
 </body>
 </html>
