@@ -664,3 +664,44 @@ td{
     color: #E05F5F;
     font:bold 15px sans-serif;
 }
+/*Общая статистика продаж*/
+#general-statistics{
+    margin-top: 15px;
+    margin-left: 160px;
+    width: 400px;
+}
+#general-statistics li{
+    border-bottom: 1px dashed #E0E0E0;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#general-statistics p{
+   font: 17px arial; 
+   margin: 0;
+   padding: 5px;
+}
+#general-statistics span{
+   position: absolute;
+   margin-left: 330px;
+   display: block;
+   margin-top: -18px;  
+   font:bold 14px sans-serif;
+}
+#title-statistics{
+    font: 20px sans-serif;
+    margin-left: 15px;
+    text-align: center;
+    text-decoration: underline;
+}
+#left-nav p{
+    font: 14px sans-serif;
+    color: white;
+    margin-left: 150px;
+    position: absolute;
+    background-color: #A3C0D2;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: -19px;
+}
