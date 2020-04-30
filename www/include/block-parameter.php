@@ -12,19 +12,19 @@ $(document).ready(function(){
     leftLimit : 60000,
     leftValue : <?php
 	
-    if ((int)$_GET["start_price"] >=60000 AND (int)$_GET["start_price"] <=9960000){
+    if ((int)$_GET["start_price"] >=60000 AND (int)$_GET["start_price"] <=25920000){
         echo(int)$_GET["start_price"];
     }else{
         echo "60000";
     }
 ?>,
-    rightLimit : 9960000,
+    rightLimit : 25920000,
     rightValue : <?php
 	
-    if ((int)$_GET["end_price"] >=60000 AND (int)$_GET["end_price"] <=9960000){
+    if ((int)$_GET["end_price"] >=60000 AND (int)$_GET["end_price"] <=25920000){
         echo(int)$_GET["end_price"];
     }else{
-        echo "6000000";
+        echo "15060000";
     }
 ?>,
     roundUp : 60000    

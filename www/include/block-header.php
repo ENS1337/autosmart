@@ -8,8 +8,8 @@
         <!-- Список с навигацией. -->
         <ul id="header-top-menu">
             <li>Ваш Город - <span>Новосибирск</span></li>
-            <li><a href="o-nas.php">О нас</a></li>
-            <li><a href="o-nas.php">Магазины</a></li>
+            <li><a href="company.php">О компании</a></li>
+            <li><a href="contacts.php">Контакты</a></li>
             <li><a href="feedback.php">Обратная связь</a></li>
         </ul>
     <!-- Вход и регистрация. -->
@@ -61,12 +61,12 @@
     <!-- Информационный блок. -->
         <div id="presonal-info">
             <p align="right">Звонок бесплатный.</p>
-            <h3 align="right">8 (800) 555-35-35</h3>
+            <h3 align="right">8 (383) 322-25-85</h3>
         
             <img src="/images/phone-icon.png" />
     
             <p align="right">Режим работы</p>
-            <p align="right">Будние дни: с 9:00 до 18:00</p>
+            <p align="right">Будние дни: с 9:00 до 20:00</p>
             <p align="right">Суббота, Воскресенье - выходные</p>
     
             <img src="/images/time-icon.png" />    

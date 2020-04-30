@@ -273,23 +273,29 @@
 #block-input-price{
     margin-left: auto;
 }
+#block-input-price ul{
+    float: left;
+    margin-left: 0;
+}
 #block-input-price li{
     float: left;
     margin-left: 10px;
 }
 #block-input-price input{
-    width: 60px;
+    width: 65px;
     height: 20px;
     font: 14px sans-serif;
     border: 1px solid #DCDCDC;
-    margin-left: -5px;
+    margin-right: 5px;
+    margin-left: -10px;
 }
 #block-input-price p{
     font: 14px sans-serif;
     float: left;
     margin-top: 0px;
     padding-top: 2px;
-    margin-left: -5px;
+    margin-right: 5px;
+    margin-left: -10px;
 }
 /* TrackBar */
 #blocktrackbar{
@@ -1545,4 +1551,47 @@ div.tabs_content > div {padding:10px;}
 #feedback input:focus,
 #feedback textarea:focus{
     border: 1px solid #C4E1EB;
+}
+/*Страница "О компании"*/
+#title-company{
+    font: 18px sans-serif;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+.company{
+    font: 15px sans-serif;
+}
+/*Страница Контакты*/
+#block-content-contacts{
+    width: 1035px;
+    height: auto;
+}
+#title-contacts{
+    font: 25px sans-serif;
+    margin-top: 10px;
+    margin-bottom: 0; 
+}
+#p-contacts{
+    font: 20px sans-serif;
+}
+.contacts > div{
+    position: absolute;
+    margin-left: 60px;
+    margin-top: -55px;
+    font: 20px sans-serif;
+}
+#block-3-contacts{
+    margin-top: -65px;
+}
+#bottom-text{
+    font: 15px sans-serif;
+}
+#bottom-text > a{
+    color: #00678C; /*color blue*/
+    text-decoration: none;
+}
+#bottom-text > a:hover{
+    color: #EF662B; /*color red*/
+    border-bottom: 1px dashed;
 }
