@@ -63,8 +63,17 @@ if (isset($cat))
        switch ($action) 
        {
 	    case 'delete':
-           $delete = mysql_query("DELETE FROM table_cars WHERE cars_id = '$id'",$link);  
-           break;
+        
+        if ($_SESSION['delete_car'] == '1')
+        {
+           
+           $delete = mysql_query("DELETE FROM table_cars WHERE cars_id = '$id'",$link);
+        
+        }else
+        {
+            $msgerror = 'У вас нет прав на удаление автомобилей!';
+        }
+        break;
 	   } 
     }
 ?>
@@ -161,7 +170,7 @@ if (isset($cat))
         </div>
         <ul id="block-cars">
 <?php
-    if (isset($msgerror)) echo '<p id="form-error" align="center">'.$msgerror.'</p>';
+if (isset($msgerror)) echo '<p id="form-error" align="center">'.$msgerror.'</p>';
     
     $num = 6;
     

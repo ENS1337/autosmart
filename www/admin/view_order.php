@@ -24,13 +24,26 @@ if ($_SESSION['auth_admin'] == "yes_auth")
     switch ($action) {
     
         case 'accept':
+        
+        if($_SESSION['accept_orders'] == '1')
+        {
         $update = mysql_query("UPDATE orders SET order_confirmed='yes' WHERE order_id = '$id'",$link);  
-   	    break;
+   	    }else{
+            $msgerror = 'У вас нет прав на подтверждение заказов!';
+        }
+        break;
             
         case 'delete':
-        $delete = mysql_query("DELETE FROM orders WHERE order_id = '$id'",$link); 
-        header("Location: orders.php");   
-   	    break;
+        
+        if($_SESSION['delete_orders'] == '1')
+        {
+          $delete = mysql_query("DELETE FROM orders WHERE order_id = '$id'",$link); 
+          header("Location: orders.php");   
+        }else{
+            $msgerror = 'У вас нет прав на удаление заказов!';
+        }
+        
+        break;
         }
   }
 ?>
@@ -59,6 +72,11 @@ if ($_SESSION['auth_admin'] == "yes_auth")
     <p id="title-page">Просмотр заказа</p>
     </div>
 <?php
+if (isset($msgerror)) echo '<p id="form-error" align="center">'.$msgerror.'</p>';
+
+
+if($_SESSION['view_orders'] == '1')
+{
 	$result = mysql_query("SELECT * FROM orders WHERE order_id = '$id'",$link);
     
     If (mysql_num_rows($result) > 0)
@@ -139,6 +157,9 @@ if ($_SESSION['auth_admin'] == "yes_auth")
     </TABLE>
     ';   
     } while ($row = mysql_fetch_array($result));
+}
+}else{
+    echo '<p id="form-error" align="center">У вас нет прав на просмотр данного раздела!</p>';
 }
 ?>
 </div>

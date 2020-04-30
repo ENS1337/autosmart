@@ -19,8 +19,14 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
             
             case 'delete':
             
-            if(file_exists("../uploads_images/".$_GET["img"])){
-                unlink("../uploads_images/".$_GET["img"]);
+            if($_SESSION['edit_car'] == '1')
+            {
+                if(file_exists("../uploads_images/".$_GET["img"]))
+                {
+                    unlink("../uploads_images/".$_GET["img"]);
+                }
+            }else{
+                $msgerror = 'У вас нет прав на изменение информации об автомобиле!';
             }
             break;
         }
@@ -28,6 +34,8 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     
     if ($_POST["submit_save"])
     {
+        if($_SESSION['edit_car'] == '1')
+        {
         $error = array();
             
            if (!$_POST["form_title"])
@@ -94,7 +102,10 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
        $update = mysql_query("UPDATE table_cars SET $querynew WHERE cars_id = '$id'",$link);             
        $_SESSION['message'] = "<p id='form-success'>Информация об автомобиле успешно изменена!</p>";
        }        
+    }else{
+        $msgerror = 'У вас нет прав на изменение информации об автомобиле!';
     }
+ }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -226,11 +237,11 @@ if (strlen($row["image"]) > 0 && file_exists("../uploads_images/".$row["image"])
 echo '
 <label class="stylelabel" >Основная картинка</label>
 <div id="baseimg">
-<img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />
-<a href="edit_car.php?id='.$row["cars_id"].'&img='.$row["image"].'&action=delete" ></a>
-</div>
-
-';
+<img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />';
+if($_SESSION['edit_car'] == '1'){
+    echo '<a href="edit_car.php?id='.$row["cars_id"].'&img='.$row["image"].'&action=delete" ></a>';
+}
+echo '</div>';
    
 }else
 {  
@@ -341,8 +352,13 @@ if  (strlen($result_img["image"]) > 0 && file_exists("../uploads_images/".$resul
 echo ' 
  <li id="del'.$result_img["id"].'" >
  <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" title="'.$result_img["image"].'" />
+ ';
+ if($_SESSION['edit_car'] == '1'){
+ echo '
  <a class="del-img" img_id="'.$result_img["id"].'"></a>
- </li>';
+ ';
+ }
+ echo '</li>';
      
 }while ($result_img = mysql_fetch_array($query_img));
 }  

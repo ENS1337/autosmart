@@ -24,6 +24,27 @@
     $row = mysql_fetch_array($result);
 
     $_SESSION['auth_admin'] = 'yes_auth';
+    
+    $_SESSION['auth_admin_login'] = $row["login"];
+	// Должность
+    $_SESSION['admin_role'] = $row["role"];
+    // Привилегии
+      // Заказы
+    $_SESSION['accept_orders'] = $row["accept_orders"];
+    $_SESSION['delete_orders'] = $row["delete_orders"];
+    $_SESSION['view_orders'] = $row["view_orders"];
+      // Автомобили  
+    $_SESSION['delete_car'] = $row["delete_car"];
+    $_SESSION['add_car'] = $row["add_car"];
+    $_SESSION['edit_car'] = $row["edit_car"];  
+     // Клиенты
+    $_SESSION['view_clients'] = $row["view_clients"];
+    $_SESSION['delete_clients'] = $row["delete_clients"]; 
+      // Категории
+    $_SESSION['add_category'] = $row["add_category"]; 
+    $_SESSION['delete_category'] = $row["delete_category"];  
+    // Администраторы
+    $_SESSION['view_admin'] = $row["view_admin"];
 
     header("Location: index.php");
     }else

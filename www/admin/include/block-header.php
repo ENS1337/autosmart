@@ -15,7 +15,7 @@
 
     <div id="block-header2" >
         <p align="right"><a href="administrators.php" >Администраторы</a> | <a href="?logout">Выход</a></p>
-        <p align="right">Вы - <span></span></p>
+        <p align="right">Вы - <span><?php echo $_SESSION['admin_role']; ?></span></p>
     </div>
 
 </div>

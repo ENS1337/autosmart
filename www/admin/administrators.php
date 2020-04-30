@@ -19,7 +19,14 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
        switch ($action) {
             
             case 'delete':
-            $delete = mysql_query("DELETE FROM reg_admin WHERE id = '$id'",$link);      
+            
+            if ($_SESSION['auth_admin_login'] == 'admin')
+            {
+                $delete = mysql_query("DELETE FROM reg_admin WHERE id = '$id'",$link);  
+                
+            }else{
+                $msgerror = 'У вас нет прав на удаление администраторов!';
+            }   
     	    break;
     	} 
     }
@@ -55,6 +62,8 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
         <p align="right" id="add-style"><a href="add_administrators.php">Добавить админа</a></p>
         </div>
 <?php
+if($_SESSION['view_admin'] == '1')
+{    
     $result = mysql_query("SELECT * FROM reg_admin ORDER BY id DESC",$link);
     if(mysql_num_rows($result) > 0)
     {
@@ -73,7 +82,9 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
             ';
         }while ($row = mysql_fetch_array($result));
     }
-	
+}else{
+    echo '<p id="form-error" align="center">У вас нет прав на просмотр администраторов!</p>';
+}	
 ?>
     </div>
 </div>

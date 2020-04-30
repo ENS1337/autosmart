@@ -14,6 +14,8 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     
     if ($_POST["submit_add"])
     {
+        if ($_SESSION['add_car'] == '1')
+        {
         $error = array();
             
            if (!$_POST["form_title"])
@@ -100,7 +102,11 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
           unset($_POST["galleryimg"]);                 
           }
         }        
-    }   
+    }else{
+        $msgerror = 'У вас нет прав на добавление автомобилей!';
+    }
+    
+ }   
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -133,6 +139,8 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     </div>
     
 <?php
+if (isset($msgerror)) echo '<p id="form-error" align="center">'.$msgerror.'</p>';
+
 	if(isset($_SESSION['message'])){
 	   echo $_SESSION['message'];
        unset($_SESSION['message']);

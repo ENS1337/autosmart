@@ -16,29 +16,35 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     
     if ($_POST["submit_edit"])
     {
-        $error = array();
-        
-        if (!$_POST["admin_login"]) $error[] = "Укажите логин!";
-        if ($_POST["admin_pass"])
+        if ($_SESSION['auth_admin_login'] == 'admin')
         {
-        $pass   = md5(clear_string($_POST["admin_pass"]));
-        $pass   = strrev($pass);
-        $pass   = "pass='".strtolower("mb03foo51".$pass."qj2jjdp9")."',";      
+            
+            $error = array();
+            
+            if (!$_POST["admin_login"]) $error[] = "Укажите логин!";
+            if ($_POST["admin_pass"])
+            {
+            $pass   = md5(clear_string($_POST["admin_pass"]));
+            $pass   = strrev($pass);
+            $pass   = "pass='".strtolower("mb03foo51".$pass."qj2jjdp9")."',";      
+            }
+        
+            if (!$_POST["admin_fio"]) $error[] = "Укажите ФИО!";
+            if (!$_POST["admin_role"]) $error[] = "Укажите должность!";
+            if (!$_POST["admin_email"]) $error[] = "Укажите E-mail!";
+        
+            if (count($error))
+            {
+                $_SESSION['message'] = "<p id='form-error'>".implode('<br />',$error)."</p>";
+            }else
+            {
+                 $querynew = "login='{$_POST["admin_login"]}',$pass fio='{$_POST["admin_fio"]}',role='{$_POST["admin_role"]}',email='{$_POST["admin_email"]}',phone='{$_POST["admin_phone"]}',view_orders='{$_POST["view_orders"]}',accept_orders='{$_POST["accept_orders"]}',delete_orders='{$_POST["delete_orders"]}',add_car='{$_POST["add_car"]}',edit_car='{$_POST["edit_car"]}',delete_car='{$_POST["delete_car"]}',view_clients='{$_POST["view_clients"]}',delete_clients='{$_POST["delete_clients"]}',add_category='{$_POST["add_category"]}',delete_category='{$_POST["delete_category"]}',view_admin='{$_POST["view_admin"]}'";
+                 $update = mysql_query("UPDATE reg_admin SET $querynew WHERE id = '$id'",$link); 
+                 $_SESSION['message'] = "<p id='form-success'>Пользователь успешно изменён!</p>";
+            }   
+        }else{
+            $msgerror = 'У вас нет прав на изменение администраторов!';
         }
-    
-        if (!$_POST["admin_fio"]) $error[] = "Укажите ФИО!";
-        if (!$_POST["admin_role"]) $error[] = "Укажите должность!";
-        if (!$_POST["admin_email"]) $error[] = "Укажите E-mail!";
-        
-        if (count($error))
-        {
-            $_SESSION['message'] = "<p id='form-error'>".implode('<br />',$error)."</p>";
-        }else
-        {
-             $querynew = "login='{$_POST["admin_login"]}',$pass fio='{$_POST["admin_fio"]}',role='{$_POST["admin_role"]}',email='{$_POST["admin_email"]}',phone='{$_POST["admin_phone"]}',view_orders='{$_POST["view_orders"]}',accept_orders='{$_POST["accept_orders"]}',delete_orders='{$_POST["delete_orders"]}',add_car='{$_POST["add_car"]}',edit_car='{$_POST["edit_car"]}',delete_car='{$_POST["delete_car"]}',view_clients='{$_POST["view_clients"]}',delete_clients='{$_POST["delete_clients"]}',add_category='{$_POST["add_category"]}',delete_category='{$_POST["delete_category"]}',view_admin='{$_POST["view_admin"]}'";
-             $update = mysql_query("UPDATE reg_admin SET $querynew WHERE id = '$id'",$link); 
-             $_SESSION['message'] = "<p id='form-success'>Пользователь успешно изменён!</p>";
-        }   
     } 
 ?>
 <!DOCTYPE HTML>
@@ -71,6 +77,8 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
         <p id="title-page">Изменение администратора</p>
         </div>
 <?php
+if (isset($msgerror)) echo '<p id="form-error" align="center">'.$msgerror.'</p>';
+
 	if(isset($_SESSION['message'])){
 	   echo $_SESSION['message'];
        unset($_SESSION['message']);

@@ -14,37 +14,40 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     
     if ($_POST["submit_add"])
     {
-
-    $error = array();
-    
-    if ($_POST["admin_login"])
-    {
-        $login = clear_string($_POST["admin_login"]);
-        $query = mysql_query("SELECT login FROM reg_admin WHERE login='$login'",$link);
- 
-     If (mysql_num_rows($query) > 0)
-     {
-        $error[] = "Логин занят!";
-     }
+       if ($_SESSION['auth_admin_login'] == 'admin')
+       {
+        
+        $error = array();
+        
+        if ($_POST["admin_login"])
+        {
+            $login = clear_string($_POST["admin_login"]);
+            $query = mysql_query("SELECT login FROM reg_admin WHERE login='$login'",$link);
+     
+         If (mysql_num_rows($query) > 0)
+         {
+            $error[] = "Логин занят!";
+         }
         
         
-    }else
-    {
-        $error[] = "Укажите логин!";
-    }
-    if (!$_POST["admin_pass"]) $error[] = "Укажите пароль!";
-    if (!$_POST["admin_fio"]) $error[] = "Укажите ФИО!";
-    if (!$_POST["admin_role"]) $error[] = "Укажите должность!";
-    if (!$_POST["admin_email"]) $error[] = "Укажите E-mail!";
-
- if (count($error))
- {
-    $_SESSION['message'] = "<p id='form-error'>".implode('<br />',$error)."</p>";
- }else
- {
-    $pass   = md5(clear_string($_POST["admin_pass"]));
-    $pass   = strrev($pass);
-    $pass   = strtolower("mb03foo51".$pass."qj2jjdp9");
+        }else
+        {
+            $error[] = "Укажите логин!";
+        }
+        if (!$_POST["admin_pass"]) $error[] = "Укажите пароль!";
+        if (!$_POST["admin_fio"]) $error[] = "Укажите ФИО!";
+        if (!$_POST["admin_role"]) $error[] = "Укажите должность!";
+        if (!$_POST["admin_email"]) $error[] = "Укажите E-mail!";
+        
+        
+        if (count($error))
+        {
+            $_SESSION['message'] = "<p id='form-error'>".implode('<br />',$error)."</p>";
+        }else
+        {
+            $pass   = md5(clear_string($_POST["admin_pass"]));
+            $pass   = strrev($pass);
+            $pass   = strtolower("mb03foo51".$pass."qj2jjdp9");
     
                   		mysql_query("INSERT INTO reg_admin(login,pass,fio,role,email,phone,view_orders,accept_orders,delete_orders,add_car,edit_car,delete_car,view_clients,delete_clients,add_category,delete_category,view_admin)
 						VALUES(						
@@ -68,14 +71,15 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
                             
                                                                                                                                                 
 						)",$link);
-                   
-          $_SESSION['message'] = "<p id='form-success'>Пользователь успешно добавлен!</p>";
+                        
+                        $_SESSION['message'] = "<p id='form-success'>Пользователь успешно добавлен!</p>";
           }   
         
     }else
     {
        $msgerror = 'У вас нет прав на добавление администраторов!'; 
-    }    
+    }
+ }    
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -107,6 +111,8 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
         <p id="title-page">Добавление администратора</p>
         </div>
 <?php
+if (isset($msgerror)) echo '<p id="form-error" align="center">'.$msgerror.'</p>';
+
 	if(isset($_SESSION['message'])){
 	   echo $_SESSION['message'];
        unset($_SESSION['message']);

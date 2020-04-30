@@ -14,27 +14,31 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     
     if ($_POST["submit_cat"])
     {
-
-        $error = array();
-        if (!$_POST["cat_type"])  $error[] = "Укажите тип автомобиля!"; 
-        if (!$_POST["cat_mark"]) $error[] = "Укажите название категории!";
+        if ($_SESSION['add_category'] == '1')
+        {
+            $error = array();
+            if (!$_POST["cat_type"])  $error[] = "Укажите тип автомобиля!"; 
+            if (!$_POST["cat_mark"]) $error[] = "Укажите название категории!";
       
-        if (count($error))
-        {
-            $_SESSION['message'] = "<p id='form-error'>".implode('<br />',$error)."</p>"; 
-        }else
-        {
-            $cat_type = clear_string($_POST["cat_type"]);
-            $cat_mark = clear_string($_POST["cat_mark"]);
+            if (count($error))
+            {
+                $_SESSION['message'] = "<p id='form-error'>".implode('<br />',$error)."</p>"; 
+            }else
+            {
+                $cat_type = clear_string($_POST["cat_type"]);
+                $cat_mark = clear_string($_POST["cat_mark"]);
+                
+                            mysql_query("INSERT INTO category_cars(type_car,mark_auto)
+        						VALUES(						
+                                    '".$cat_type."',
+                                    '".$cat_mark."'                              
+        						)",$link);   
+             $_SESSION['message'] = "<p id='form-success'>Категория успешно добавлена!</p>";   
+             }
             
-                        mysql_query("INSERT INTO category_cars(type_car,mark_auto)
-    						VALUES(						
-                                '".$cat_type."',
-                                '".$cat_mark."'                              
-    						)",$link);   
-         $_SESSION['message'] = "<p id='form-success'>Категория успешно добавлена!</p>";   
-         }
-        
+        }else{
+            $msgerror = 'У вас нет прав на добавление категории!';
+        }
     }
 ?>
 <!DOCTYPE HTML>
@@ -65,6 +69,8 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
         <p id="title-page">Категории</p>
         </div>
         <?php
+        if (isset($msgerror)) echo '<p id="form-error" align="center">'.$msgerror.'</p>';
+        
                 if(isset($_SESSION['message']))
                 {
                 echo $_SESSION['message'];
@@ -76,7 +82,12 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
                 <li>
                 <label>Категории</label>
                 <div>
-                    <a class="delete-cat">Удалить</a>
+                <?php 
+                if ($_SESSION['delete_category'] == '1')
+                {
+                    echo '<a class="delete-cat">Удалить</a>';
+                }
+                ?>
                 </div>
                 <select name="cat_type" id="cat_type" size="10">
                     <?php

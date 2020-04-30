@@ -17,10 +17,14 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
     if (isset($action))
     {
        switch ($action) {
-            
-            case 'delete':
-            $delete = mysql_query("DELETE FROM reg_user WHERE id = '$id'",$link);      
-    	    break;
+        case 'delete':
+        if($_SESSION['delete_clients'] == '1')
+        {
+            $delete = mysql_query("DELETE FROM reg_user WHERE id = '$id'",$link);   
+        }else{
+            $msgerror = 'У вас нет прав на удаление клиентов!';
+        }
+        break;
     	} 
     }
 ?>
@@ -56,6 +60,10 @@ if ($_SESSION['auth_admin'] == "yes_auth"){
         <p id="count-clients">Клиенты - <strong><?php echo $result_count;?></strong></p>
         </div>
     <?php
+if (isset($msgerror)) echo '<p id="form-error" align="center">'.$msgerror.'</p>';
+
+    if ($_SESSION['view_clients'] == '1')
+    {
         $num = 4;
 
         $page = strip_tags($_GET['page']);              
@@ -141,6 +149,9 @@ if ($total > 1)
     </ul>
     </div>
     ';
+}
+}else{
+    echo '<p id="form-error" align="center">У вас нет прав на просмотр данной страницы!</p>';
 }
     ?>
     </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 30 2020 г., 17:10
+-- Время создания: Апр 30 2020 г., 19:42
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `buy_cars` (
   `buy_id_order` int(11) NOT NULL,
   `buy_id_car` int(11) NOT NULL,
   PRIMARY KEY (`buy_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Дамп данных таблицы `buy_cars`
@@ -52,7 +52,9 @@ INSERT INTO `buy_cars` (`buy_id`, `buy_id_order`, `buy_id_car`) VALUES
 (13, 8, 8),
 (14, 1, 12),
 (15, 1, 11),
-(16, 1, 8);
+(16, 1, 8),
+(17, 2, 12),
+(18, 2, 11);
 
 -- --------------------------------------------------------
 
@@ -68,16 +70,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `cart_datetime` datetime NOT NULL,
   `cart_ip` varchar(100) NOT NULL,
   PRIMARY KEY (`cart_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Дамп данных таблицы `cart`
---
-
-INSERT INTO `cart` (`cart_id`, `cart_id_cars`, `cart_price`, `cart_count`, `cart_datetime`, `cart_ip`) VALUES
-(1, 12, 415000, 1, '2020-04-30 16:02:14', '127.0.0.1'),
-(2, 11, 125000, 1, '2020-04-30 16:02:14', '127.0.0.1'),
-(3, 8, 14530000, 1, '2020-04-30 16:02:16', '127.0.0.1');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -135,7 +128,7 @@ INSERT INTO `category_cars` (`id`, `type_car`, `mark_auto`) VALUES
 CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `order_datetime` datetime NOT NULL,
-  `order_confirmed` varchar(10) NOT NULL,
+  `order_confirmed` varchar(10) NOT NULL DEFAULT 'no',
   `order_delivery` varchar(255) NOT NULL,
   `order_pay` varchar(50) NOT NULL,
   `order_type_pay` varchar(100) NOT NULL,
@@ -145,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `order_note` text NOT NULL,
   `order_email` varchar(50) NOT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Дамп данных таблицы `orders`
@@ -187,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `reg_admin` (
 --
 
 INSERT INTO `reg_admin` (`id`, `login`, `pass`, `fio`, `role`, `email`, `phone`, `view_orders`, `accept_orders`, `delete_orders`, `add_car`, `edit_car`, `delete_car`, `view_clients`, `delete_clients`, `add_category`, `delete_category`, `view_admin`) VALUES
-(2, 'admin', 'mb03foo5107b432d25170b469b57095ca269bc202qj2jjdp9', 'Иванов Пётр Генадьевич', 'Администратор', 'petr@mail.ru', '123123123', 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1);
+(2, 'admin', 'mb03foo5107b432d25170b469b57095ca269bc202qj2jjdp9', 'Иванов Пётр Генадьевич', 'Администратор', 'petr@mail.ru', '123123123', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 

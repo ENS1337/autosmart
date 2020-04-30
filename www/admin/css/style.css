@@ -429,19 +429,24 @@ a.pstr-prev:hover, a.pstr-next:hover{
     height: 25px; 
 }
 #cat_cars div{
-   position: absolute;
-   margin-left: 560px;
-   display: inline-block;
+    position: absolute;
+    margin-left: 560px;
+    display: inline-block;
 }
 #cat_cars a{
-   font: 14px sans-serif;
-   display: block;
-   margin-top: 4px;
-   cursor: pointer;
-   text-decoration: underline;
+    font: bold 13px sans-serif;
+    display: block;
+    margin-top: 4px;
+    cursor: pointer;
+    text-decoration: underline;
 }
 #cat_cars a:hover{
-   text-decoration: none;
+    text-decoration: none;
+}
+.delete-cat{
+    color: #D6533C;
+    cursor: pointer;
+    text-decoration: underline;
 }
 /*Раздел Клиенты*/
 #count-clients{
