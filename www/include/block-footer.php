@@ -9,7 +9,7 @@
     <div class="footer-right">
         <ul>
             <li><a href="index.php">Главная</a></li>
-            <li><a href="o-nas.php">О компании</a></li>
+            <li><a href="company.php">О компании</a></li>
             <li><a href="feedback.php">Обратная связь</a></li>
         </ul>
     </div>
