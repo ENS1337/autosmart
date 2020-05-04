@@ -6,7 +6,7 @@ $(document).ready(function() {
 		btnPrev: "#news-prev",
 		btnNext: "#news-next",
 		visible: 3,
-		auto:3000,
+		auto:6000,
 		speed:500
 	});
     

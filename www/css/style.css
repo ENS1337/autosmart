@@ -270,9 +270,6 @@
     margin-top: 3px;
     margin-bottom: 10px;
 }
-#block-input-price{
-    margin-left: auto;
-}
 #block-input-price ul{
     float: left;
     margin-left: 0;
@@ -282,12 +279,14 @@
     margin-left: 10px;
 }
 #block-input-price input{
-    width: 65px;
+    width: 63px;
     height: 20px;
     font: 14px sans-serif;
     border: 1px solid #DCDCDC;
     margin-right: 5px;
     margin-left: -10px;
+    padding: 0;
+	-webkit-appearance: none;
 }
 #block-input-price p{
     font: 14px sans-serif;
@@ -295,7 +294,7 @@
     margin-top: 0px;
     padding-top: 2px;
     margin-right: 5px;
-    margin-left: -10px;
+    margin-left: -12px;
 }
 /* TrackBar */
 #blocktrackbar{
